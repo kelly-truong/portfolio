@@ -1,5 +1,6 @@
 import react from 'react'
 import './about.scss'
+import flower from '../assets/flower.svg'
 
 
 
@@ -17,15 +18,15 @@ const About = () => {
                 </div>
                 <div className="right--side">
                     <div className="about__ovals oval-1">
-                        <img className="flower" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Flowerit_5_Pink.svg" alt="" />
+                        <img className="flower" src={flower} alt="" />
                         <h1 className="about__title">CHICKEN NUGGIE</h1>
                     </div>
                     <div className="about__ovals oval-2">
-                        <img className="flower" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Flowerit_5_Pink.svg" alt="" />
+                        <img className="flower" src={flower} alt="" />
                         <h1 className="about__title">CHICKEN NUGGIE</h1>
                     </div>
                     <div className="about__ovals oval-3">
-                        <img className="flower" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Flowerit_5_Pink.svg" alt="" />
+                        <img className="flower" src={flower} alt="" />
                         <h1 className="about__title">CHICKEN NUGGIE</h1>
                     </div>
                     <div className="about--me">
