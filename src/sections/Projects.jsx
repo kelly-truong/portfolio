@@ -38,7 +38,6 @@ const Projects = () => {
 
     const updateProject = (project) => {
         setSelectedProject(project)
-        console.log(selectedProject)
     }
 
 
@@ -48,7 +47,7 @@ const Projects = () => {
             <div className="columns">
                 <div className="column-1">
                     {projects.map(project => (
-                        <div className={(`project__name--box && ${selectedProject === project ? "selected" : ""}`)} onClick={() => updateProject(project)}>
+                        <div className={(`project__name--box clickable ${selectedProject === project ? "selected" : ""}`)} onClick={() => updateProject(project)}>
                             <img className="heart" src={heart} alt="" />
                             <span className="project--name">{project.name}</span>
                         </div>
@@ -59,8 +58,8 @@ const Projects = () => {
                         src={selectedProject.name === "Library" ? library
                             : selectedProject.name === "Netflix Clone" ? netflix
                                 : selectedProject.name === "Treact" ? treact
-                                    : selectedProject.name === "Todo List" ? todo 
-                                    : selectedProject.name === "E-portfolio" ? eportfolio : ""}
+                                    : selectedProject.name === "Todo List" ? todo
+                                        : selectedProject.name === "E-portfolio" ? eportfolio : ""}
                     />
                 </div>
                 <div className="column-3">

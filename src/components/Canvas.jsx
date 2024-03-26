@@ -92,6 +92,8 @@ const Canvas = () => {
         petal.time++;
     };
     const onMouseMove = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
         if (!throttleTimeoutRef.current) {
             // Throttle the mousemove event
             throttleTimeoutRef.current = setTimeout(() => {
@@ -103,7 +105,7 @@ const Canvas = () => {
 
     return <canvas ref={canvasRef}
         style={{
-            position: "fixed"
+            position: "fixed",
         }}
         onMouseMove={onMouseMove}
     />
