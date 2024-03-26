@@ -1,5 +1,6 @@
 .loading {
     position: absolute;
+    z-index: 9999;
     height: 100%;
     width: 100%;
     top: 0;
@@ -9,6 +10,11 @@
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    
+
+    &-done {
+        z-index: -9999;
+    }
 
     .letter {
         --delay: 1s;
