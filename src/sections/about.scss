@@ -1,0 +1,51 @@
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .about--wrapper {
+        background-color: #FFF9FB;
+        border-radius: 48px;
+        width: 100%;
+        max-width: 90rem;
+        padding: 4rem 6rem;
+
+        .about--title {
+            font-size: 3rem;
+            padding: 2rem 0;
+        }
+
+        .about--columns {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+
+            .about--box {
+                background-color: white;
+                border-radius: 1.5rem;
+                padding: 3rem 2rem;
+                margin-bottom: 2rem;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+                .pink-flower {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    margin-bottom: 2rem;
+                }
+
+                .about--header {
+                    margin-bottom: 3rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .middle {
+            margin-top: 4rem;
+        }
+
+        .right {
+            margin-top: 8rem;
+        }
+    }
+}

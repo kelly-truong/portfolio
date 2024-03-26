@@ -1,4 +1,7 @@
 import react from 'react'
+import './about.scss'
+import flower from '../assets/flower.svg'
+import pinkFlower from '../assets/pink-flower.png'
 
 
 
@@ -6,7 +9,47 @@ import react from 'react'
 const About = () => {
 
     return < section id='about' >
-       
+        <div className="about--wrapper">
+            <h1 className="about--title">About me</h1>
+            <div className="about--columns">
+                <div className="about--column left">
+                    <div className="about--box">
+                        <img className="pink-flower" src={pinkFlower} alt="" />
+                        <h3 className="about--header">Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.</p>
+                    </div>
+                    <div className="about--box">
+                        <img className="pink-flower" src={pinkFlower} alt="" />
+                        <h3 className="about--header">Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.</p>
+                    </div>
+                </div>
+                <div className="about--column middle">
+                    <div className="about--box">
+                        <img className="pink-flower" src={pinkFlower} alt="" />
+                        <h3 className="about--header">Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.</p>
+                    </div>
+                    <div className="about--box">
+                        <img className="pink-flower" src={pinkFlower} alt="" />
+                        <h3 className="about--header">Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.</p>
+                    </div>
+                </div>
+                <div className="about--column right">
+                    <div className="about--box">
+                        <img className="pink-flower" src={pinkFlower} alt="" />
+                        <h3 className="about--header">Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.</p>
+                    </div>
+                    <div className="about--box">
+                        <img className="pink-flower" src={pinkFlower} alt="" />
+                        <h3 className="about--header">Title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section >
 }
 export default About

@@ -1,26 +1,21 @@
 #projects {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
-    padding: 0 2rem;
 
     .projects--wrapper {
         background-color: black;
         border-radius: 48px;
         width: 100%;
-        padding: 7rem 6rem;
-        
-
-        .projects--title {
-            font-size: 3rem;
-            padding: 2rem 0;
-        }
+        max-width: 90rem;
+        padding: 4rem 6rem;
 
         .columns {
             display: flex;
             gap: 2rem;
+            margin-left: 2rem;
 
             .column-1 {
                 width: 25%;
@@ -29,7 +24,7 @@
                     display: flex;
                     align-items: center;
                     border: 2px solid white;
-                    border-radius: 1rem;
+                    border-radius: 1.5rem;
                     padding: 1rem 2rem;
                     margin-bottom: 1.5rem;
                     cursor: pointer;
@@ -58,18 +53,26 @@
 
                 .project--img {
                     width: 30rem;
-                    height: 40rem;
+                    height: 35rem;
                     border-radius: 1rem;
+                    object-fit: cover;
+                }
 
+                .netflix--img {
+                    object-position: left;
+                }
+
+                .treact--img {
+                    object-position: 30%;
+                }
+
+                .eportfolio--img {
+                    object-position: 40%;
                 }
             }
 
             .column-3 {
                 width: calc(75% / 2);
-
-                .project--description {
-                    font-size: 1.2rem;
-                }
             }
 
         }

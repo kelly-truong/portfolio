@@ -1,27 +1,35 @@
 import react, { useState } from 'react'
 import './projects.scss'
 import heart from '../assets/heart.svg'
+import library from '../assets/library.png'
+import netflix from '../assets/netflix.png'
+import treact from '../assets/treact.png'
+import todo from '../assets/todo.png'
+import eportfolio from '../assets/eportfolio.png'
+
+
+
 
 const projects = [
     {
         name: "Library",
         desc: 'library project',
-        img: 'https://www.smokonow.com/cdn/shop/products/ecCr_pTc.jpg?v=1669926078'
     },
     {
         name: "Netflix Clone",
         desc: 'netflix project',
-        img: 'imgsrc'
     },
     {
         name: "Treact",
         desc: 'treact project',
-        img: 'imgsrc'
     },
     {
         name: "Todo List",
         desc: 'todo project',
-        img: 'imgsrc'
+    },
+    {
+        name: "E-portfolio",
+        desc: 'e-portfolio',
     }
 ]
 
@@ -36,10 +44,7 @@ const Projects = () => {
 
     return < section id='projects' >
         <div className="projects--wrapper">
-            <div>
-                <h1 className="projects--title">Projects</h1>
-            </div>
-
+            <h2>Projects</h2>
             <div className="columns">
                 <div className="column-1">
                     {projects.map(project => (
@@ -50,10 +55,16 @@ const Projects = () => {
                     ))}
                 </div>
                 <div className="column-2">
-                    <img className={"project--img"} src={selectedProject.img} alt="" />
+                    <img className={`project--img ${selectedProject.name === "Netflix Clone" ? "netflix--img" : selectedProject.name === "Treact" ? "treact--img" : selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
+                        src={selectedProject.name === "Library" ? library
+                            : selectedProject.name === "Netflix Clone" ? netflix
+                                : selectedProject.name === "Treact" ? treact
+                                    : selectedProject.name === "Todo List" ? todo 
+                                    : selectedProject.name === "E-portfolio" ? eportfolio : ""}
+                    />
                 </div>
                 <div className="column-3">
-                    <p className="project--description">
+                    <p>
                         {selectedProject.desc}
                     </p>
                 </div>
