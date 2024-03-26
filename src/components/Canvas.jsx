@@ -7,6 +7,7 @@ const Canvas = () => {
     const context = canvas?.getContext('2d')
     const petals = useRef([]);
     const throttleTimeoutRef = useRef(null);
+
     useEffect(() => {
         if (canvas && context) {
             const resize = () => {
@@ -30,11 +31,11 @@ const Canvas = () => {
         context.fillStyle = "pink"
         context.save();
         context.translate(x, y);
-        context.rotate(rotation); // Rotate the petal
+        context.rotate(rotation);
         context.beginPath();
         context.moveTo(0, 0);
-        context.quadraticCurveTo(-size / 2, -size / 2, 0, -size); // Adjust control points as needed
-        context.quadraticCurveTo(size / 2, -size / 2, 0, 0); // Adjust control points as needed
+        context.quadraticCurveTo(-size / 2, -size / 2, 0, -size);
+        context.quadraticCurveTo(size / 2, -size / 2, 0, 0);
         context.closePath();
         context.fill();
         context.restore();
@@ -101,7 +102,9 @@ const Canvas = () => {
     }
 
     return <canvas ref={canvasRef}
-        style={{ position: "fixed" }}
+        style={{
+            position: "fixed"
+        }}
         onMouseMove={onMouseMove}
     />
 }

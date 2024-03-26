@@ -23,11 +23,11 @@ function App() {
 
   return (
     <div className="App">
-      {init && <Loading />}
+      {<Loading init={init} />}
       <Canvas />
       <div className="side-nav">
       </div>
-      <div className="content">
+      <div className={"content" + (init ? " content-inactive" : "")}>
         <Landing />
         <About />
         <Checklist />

@@ -1,9 +1,9 @@
-import react from 'react'
+import react, { useEffect, useRef } from 'react'
 import './loading.scss'
 
-const Loading = () => {
+const Loading = ({ init }) => {
 
-    return <div className="loading">
+    return <div className={"loading " + (init ? "" : "loading-done")}>
         <div className="first-name">
             {["K", "e", "l", "l", "y"].map((x, i) => {
                 return <span className="letter" key={i}>
