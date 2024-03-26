@@ -1,11 +1,74 @@
 #checklist {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    color: white;
 
     .checklist--wrapper {
-        display: flex;
-        border: 1px solid black;
+        background-color: black;
+        border-radius: 48px;
         width: 100%;
-        max-width: 95%;
+        max-width: 115rem;
+        padding: 7rem 6rem;
+        
+
+        .landing--title {
+            font-size: 3rem;
+            padding: 2rem 0;
+        }
+
+        .columns {
+            display: flex;
+            gap: 2rem;
+
+            .column-1 {
+                width: 25%;
+
+                .project__name--box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid white;
+                    border-radius: 1rem;
+                    padding: 1rem 3rem;
+
+                    .heart {
+                        filter: invert(1);
+                        width: 2rem;
+                        height: 2rem;
+                        margin-right: 1rem;
+                    }
+
+                    .project--name {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+            .column-2 {
+                width: calc(75% / 2);
+                display: flex;
+                justify-content: center;
+
+                .project--img {
+                    width: 30rem;
+                    height: 40rem;
+                    border-radius: 1rem;
+
+                }
+            }
+
+            .column-3 {
+                width: calc(75% / 2);
+
+                .project--description {
+                    font-size: 1.2rem;
+                }
+            }
+
+        }
     }
+
+
 }
