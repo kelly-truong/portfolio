@@ -1,6 +1,8 @@
 .App {
     --pink: #FFB7C5;
     --bg: #1a1a1b;
+    --fontColor: #edede9;
+    color: var(--fontColor);
 }
 
 
@@ -20,14 +22,14 @@
 }
 
 .content {
-    background-color: white;
+    background-color: var(--bg);
     transition: clip-path 1.5s ease-in-out;
     height: 100vh;
     overflow: hidden;
 
     &-active {
         animation: load 1.5s ease-in-out;
-        height: 100vh;
+        height: unset;
         overflow: unset;
     }
 
