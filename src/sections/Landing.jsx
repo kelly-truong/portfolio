@@ -1,6 +1,7 @@
 import react from 'react'
 import './landing.scss'
 import flower from '../assets/flower.svg'
+import vid from '../assets/video.webm'
 
 
 
@@ -13,7 +14,9 @@ const Landing = () => {
                 <div className="left--side">
                     <h1 className="landing--title-2">NUBNUB</h1>
                     <div className="cinnamoroll">
-                        cinnamoroll
+                        <video width="900" height="700" autoPlay loop muted >
+                            <source src={vid} type="video/mp4" />
+                        </video>
                     </div>
                 </div>
                 <div className="right--side">
