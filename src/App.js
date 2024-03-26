@@ -27,7 +27,7 @@ function App() {
       <Canvas />
       <div className="side-nav">
       </div>
-      <div className={"content" + (init ? " content-inactive" : " content-active")}>
+      <div className={"content background--custom" + (init ? " content-inactive" : " content-active")}>
         <Landing />
         <About />
         <Checklist />

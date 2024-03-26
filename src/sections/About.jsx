@@ -1,4 +1,4 @@
-import react from 'react'
+import react, { useEffect, useRef } from 'react'
 import './about.scss'
 import flower from '../assets/flower.svg'
 import pinkFlower from '../assets/pink-flower.png'
@@ -10,7 +10,9 @@ const About = () => {
 
     return < section id='about' >
         <div className="about--wrapper">
-            <div className="about--title">ABOUT</div>
+            <div className="about--title">
+                ABOUT
+            </div>
             <div className="about--columns">
                 <div className="about--column left">
                     <div className="about--box">
