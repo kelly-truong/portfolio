@@ -3,7 +3,13 @@ import './checklist.scss'
 import heart from '../assets/heart.svg'
 
 
-
+const projects = [
+    {
+        name: "project1",
+        desc: 'descript',
+        img: 'imgsrc'
+    }
+]
 
 const Checklist = () => {
 
