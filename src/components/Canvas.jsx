@@ -5,13 +5,17 @@ const Canvas = () => {
     const canvasRef = useRef(null)
     const canvas = canvasRef.current
     const context = canvas?.getContext('2d')
-    const balls = useRef([]);
-
+    const petals = useRef([]);
+    const throttleTimeoutRef = useRef(null);
     useEffect(() => {
         if (canvas && context) {
-            canvas.width = window.innerWidth
-            canvas.height = window.innerHeight
+            const resize = () => {
+                canvas.width = window.innerWidth
+                canvas.height = window.innerHeight
+            }
+            resize();
             animationLoop();
+            window.addEventListener("resize", resize)
         }
 
     }, [canvas, context])
@@ -20,82 +24,86 @@ const Canvas = () => {
     function getRandomInt(min, max) {
         return Math.round(Math.random() * (max - min)) + min;
     }
-    let rgb = [
-        "rgb(26, 188, 156)",
-        "rgb(46, 204, 113)",
-        "rgb(52, 152, 219)",
-        "rgb(155, 89, 182)",
-        "rgb(241, 196, 15)",
-        "rgb(230, 126, 34)",
-        "rgb(231, 76, 60)"
-    ]
-    const drawBall = (ball) => {
-        context.fillStyle = ball.style
-        context.beginPath()
-        context.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
-        context.closePath()
-        context.fill()
+
+    const drawPetal = (petal) => {
+        const { x, y, size, rotation } = petal;
+        context.fillStyle = "pink"
+        context.save();
+        context.translate(x, y);
+        context.rotate(rotation); // Rotate the petal
+        context.beginPath();
+        context.moveTo(0, 0);
+        context.quadraticCurveTo(-size / 2, -size / 2, 0, -size); // Adjust control points as needed
+        context.quadraticCurveTo(size / 2, -size / 2, 0, 0); // Adjust control points as needed
+        context.closePath();
+        context.fill();
+        context.restore();
     }
 
-    const createBall = (mouseX, mouseY) => {
+    const createPetal = (mouseX, mouseY) => {
         const start = {
             x: mouseX + getRandomInt(-20, 20),
             y: mouseY + getRandomInt(-20, 20),
-            size: getRandomInt(10, 20)
+            size: getRandomInt(20, 30)
         };
         const end = {
             x: start.x + getRandomInt(-300, 300),
-            y: start.y + getRandomInt(-300, 300)
+            y: start.y + getRandomInt(0, 300)
         };
-        const style = rgb[getRandomInt(0, rgb.length - 1)]
-        return { start, end, x: start.x, y: start.y, size: start.size, style, time: 0, ttl: 100 };
+        const rotation = Math.random() * Math.PI * 2;
+        return { start, end, x: start.x, y: start.y, size: start.size, rotation, time: 0, ttl: 300 };
     };
 
 
 
     const animationLoop = () => {
         context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-        context.globalCompositeOperation = 'lighter';
-        drawBalls();
+        drawPetals();
 
-        let aliveBalls = [];
-        for (let i = 0; i < balls.current.length; i++) {
-            if (balls.current[i].time <= balls.current[i].ttl) {
-                aliveBalls.push(balls.current[i]);
+        let alivePetals = [];
+        for (let i = 0; i < petals.current.length; i++) {
+            if (petals.current[i].time <= petals.current[i].ttl) {
+                alivePetals.push(petals.current[i]);
             }
         }
-        balls.current = aliveBalls;
+        petals.current = alivePetals;
 
         requestAnimationFrame(animationLoop);
     }
 
-    const drawBalls = () => {
-        balls.current.forEach(x => {
-            updateBall(x)
-            drawBall(x)
+    const drawPetals = () => {
+        petals.current.forEach(x => {
+            updatePetal(x)
+            drawPetal(x)
         })
     }
 
     const easeOutQuart = (x) => {
         return 1 - Math.pow(1 - x, 4);
     };
-    const updateBall = (ball) => {
-        if (ball.time <= ball.ttl) {
-            let progress = 1 - (ball.ttl - ball.time) / ball.ttl;
-            ball.size = ball.start.size * (1 - easeOutQuart(progress));
-            ball.x = ball.x + (ball.end.x - ball.x) * 0.01;
-            ball.y = ball.y + (ball.end.y - ball.y) * 0.01;
+    const updatePetal = (petal) => {
+        if (petal.time <= petal.ttl) {
+            let progress = 1 - (petal.ttl - petal.time) / petal.ttl;
+            petal.size = petal.start.size * (1 - easeOutQuart(progress));
+            petal.x = petal.x + (petal.end.x - petal.x) * 0.01;
+            petal.y = petal.y + (petal.end.y - petal.y) * 0.01;
         }
-        ball.time++;
+        petal.time++;
     };
     const onMouseMove = (e) => {
-
-            balls.current.push(createBall(e.clientX, e.clientY))
+        if (!throttleTimeoutRef.current) {
+            // Throttle the mousemove event
+            throttleTimeoutRef.current = setTimeout(() => {
+                petals.current.push(createPetal(e.clientX, e.clientY))
+                throttleTimeoutRef.current = null;
+            }, 50); // Adjust the throttle interval (in milliseconds) as needed
+        }
     }
 
     return <canvas ref={canvasRef}
+        style={{ position: "fixed" }}
         onMouseMove={onMouseMove}
     />
 }
 
-export default Canvas
+export default Canvas;
