@@ -14,12 +14,23 @@
 
 .content {
     background-color: white;
-    transition: clip-path 1s ease-out;
-    clip-path: ellipse(100% 100% at 50% 0vh);
+    transition: clip-path 1.5s ease-in-out;
 
-    &-inactive {
-        clip-path: ellipse(100% 0vh at 50% 0vh);
+  
+
+    &-active {
+        animation: load 1.5s ease-in-out;
     }
 
+    @keyframes load {
+        0% {
+            clip-path: ellipse(50% 0% at 50% 0vh);
+        }
+
+        100% {
+            clip-path: ellipse(100% 100% at 50% 0vh);
+        }
+
+    }
 
 }
