@@ -1,4 +1,4 @@
-import react from 'react'
+import react, { useState } from 'react'
 import './checklist.scss'
 import heart from '../assets/heart.svg'
 
@@ -26,6 +26,11 @@ const projects = [
 ]
 
 const Checklist = () => {
+    const [project, setProject] = useState("")
+
+    const updateProject = (projects) => {
+
+    }
 
     return < section id='checklist' >
         <div className="checklist--wrapper">
@@ -33,12 +38,24 @@ const Checklist = () => {
                 <h1 className="landing--title">Projects</h1>
             </div>
 
-            {projects.map(project => (
+            {/* {projects.map(project => ( */}
                 <div className="columns">
                     <div className="column-1">
+                        <div className="project__name--box" onClick={updateProject} >
+                            <img className="heart" src={heart} alt="" />
+                            <span className="project--name">Library</span>
+                        </div>
                         <div className="project__name--box">
                             <img className="heart" src={heart} alt="" />
-                            <span className="project--name">{project.name}</span>
+                            <span className="project--name">Netflix Clone</span>
+                        </div>
+                        <div className="project__name--box">
+                            <img className="heart" src={heart} alt="" />
+                            <span className="project--name">Treact</span>
+                        </div>
+                        <div className="project__name--box">
+                            <img className="heart" src={heart} alt="" />
+                            <span className="project--name">Todo List</span>
                         </div>
                     </div>
                     <div className="column-2">
@@ -50,8 +67,7 @@ const Checklist = () => {
                         </p>
                     </div>
                 </div>
-            ))}
-
+            {/* ))} */}
         </div>
 
     </section >

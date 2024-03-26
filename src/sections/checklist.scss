@@ -4,12 +4,12 @@
     align-items: center;
     justify-content: center;
     color: white;
+    padding: 0 2rem;
 
     .checklist--wrapper {
         background-color: black;
         border-radius: 48px;
         width: 100%;
-        max-width: 115rem;
         padding: 7rem 6rem;
         
 
@@ -28,20 +28,22 @@
                 .project__name--box {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
                     border: 1px solid white;
                     border-radius: 1rem;
-                    padding: 1rem 3rem;
+                    padding: 1rem 2rem;
+                    margin-bottom: 1.5rem;
+
 
                     .heart {
                         filter: invert(1);
                         width: 2rem;
                         height: 2rem;
-                        margin-right: 1rem;
+                        margin-right: 2rem;
                     }
 
                     .project--name {
                         font-size: 1.5rem;
+                        cursor: pointer;
                     }
                 }
             }
