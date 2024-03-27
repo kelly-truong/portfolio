@@ -29,6 +29,8 @@ function App() {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setAnimate(true)
+      } else {
+        setAnimate(false)
       }
     }, options)
 
