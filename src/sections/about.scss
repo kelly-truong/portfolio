@@ -8,10 +8,27 @@
         width: 100%;
         max-width: 90rem;
 
+        &.show {
+            .about--title {
+                animation: show 1.25s ease-in forwards;
+            }
+
+            @keyframes show {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+
         .about--title {
             font-size: 10rem;
             padding: 2rem 0;
             letter-spacing: .5rem;
+            opacity: 0;
         }
 
         .canvas-line {
