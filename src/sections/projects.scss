@@ -8,12 +8,6 @@
         width: 100%;
         max-width: 90rem;
 
-        .projects--title {
-            font-size: 10rem;
-            padding: 2rem 0;
-            letter-spacing: .5rem;
-        }
-
         .columns {
             display: flex;
             gap: 2rem;
@@ -23,7 +17,6 @@
                 width: calc(100% / 3);
 
                 .project__name--box {
-                    letter-spacing: .23rem;
                     width: 80%;
                     display: flex;
                     align-items: center;
@@ -42,11 +35,7 @@
 
                     .pink-heart {
                         filter: none;
-                    }
-
-                    .project--name {
-                        font-size: 1.5rem;
-                    }
+                    }  
                 }
 
                 .selected {

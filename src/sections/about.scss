@@ -8,7 +8,7 @@
         max-width: 90rem;
 
         &.show {
-            .about--title {
+            .title {
                 animation: show 1.25s ease-in forwards;
             }
 
@@ -23,10 +23,7 @@
             }
         }
 
-        .about--title {
-            font-size: 10rem;
-            padding: 2rem 0;
-            letter-spacing: .5rem;
+        .title {
             opacity: 0;
         }
 
@@ -49,9 +46,10 @@
                     margin-bottom: 2rem;
                 }
 
-                .about--header {
+                .name {
                     margin-bottom: 3rem;
-                    font-size: 1.5rem;
+                    font-weight: 600;
+                    font-size: 2rem;
                 }
             }
         }

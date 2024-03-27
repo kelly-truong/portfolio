@@ -14,7 +14,7 @@ import eportfolio from '../assets/eportfolio.png'
 const projects = [
     {
         name: "Library",
-        desc: 'library project',
+        desc: 'The best online library!',
     },
     {
         name: "Netflix Clone",
@@ -44,13 +44,13 @@ const Projects = () => {
 
     return < section id='projects' >
         <div className="projects--wrapper">
-            <div className="projects--title">PROJECTS</div>
+            <div className="title">PROJECTS</div>
             <div className="columns">
                 <div className="column-1">
                     {projects.map(project => (
                         <div className={`project__name--box clickable ${selectedProject === project ? "selected" : ""}`} onClick={() => updateProject(project)}>
                             <img className={`heart ${selectedProject === project ? "pink-heart" : ""}`} src={selectedProject === project ? pinkHeart : heart} alt="" />
-                            <span className="project--name">{project.name}</span>
+                            <span className="name">{project.name}</span>
                         </div>
                     ))}
                 </div>

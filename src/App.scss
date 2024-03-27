@@ -67,12 +67,18 @@
 
 }
 
-h2 {
-    font-size: 3rem;
+.title {
+    font-size: 10rem;
     padding: 2rem 0;
+    letter-spacing: .5rem;
+}
+
+.name {
+    font-size: 1.5rem;
+    letter-spacing: .23rem;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.5;
 }
