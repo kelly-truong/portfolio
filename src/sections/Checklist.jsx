@@ -7,32 +7,31 @@ import pochacco from '../assets/pochacco.jpg'
 
 const Checklist = () => {
     const trackRef = useRef(null);
+    const throttleTimeoutRef = useRef(null);
 
 
+    const updateMouseDownDataSet = (e) => {
+        trackRef.current.dataset.mouseDownAt = e.clientX
+    }
 
-    useEffect(() => {
-        if (trackRef) {
-            const updateMouseDownDataSet = (e) => {
-                trackRef.current.dataset.mouseDownAt = e.clientX
-            }
+    const updateMouseUpDataSet = (e) => {
+        trackRef.current.dataset.mouseDownAt = "0"
+        trackRef.current.dataset.prevPercentage = trackRef.current.dataset.percentage
+    }
 
+    const updateMouseMove = (e) => {
 
-            const updateMouseUpDataSet = (e) => {
-                trackRef.current.dataset.mouseDownAt = "0"
-                trackRef.current.dataset.prevPercentage = trackRef.current.dataset.percentage
-            }
-
-
-            const updateMouseMove = (e) => {
-                if (trackRef.current.dataset.mouseDownAt === "0") return
-
+        if (!throttleTimeoutRef.current) {
+            throttleTimeoutRef.current = setTimeout(() => {
+                if (trackRef.current.dataset.mouseDownAt === "0") {
+                    throttleTimeoutRef.current = null;
+                    return
+                }
                 let mouseDelta = parseFloat(trackRef.current.dataset.mouseDownAt) - e.clientX
                 let maxDelta = window.innerWidth / 2
-
                 const percentage = (mouseDelta / maxDelta) * -100
                 let nextPercentage = parseFloat(trackRef.current.dataset.prevPercentage) + percentage
-                nextPercentage = Math.max(-100, Math.min(0, nextPercentage))
-
+                nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
                 trackRef.current.dataset.percentage = nextPercentage
 
                 trackRef.current.animate({
@@ -41,25 +40,21 @@ const Checklist = () => {
 
                 for (const image of trackRef.current.getElementsByClassName("image")) {
                     image.animate({
-                        objectPosition: `${nextPercentage}% center`
+                        objectPosition: `${100 + nextPercentage}% center`
                     }, { duration: 1200, fill: "forwards" })
                 }
-            }
-
-            window.addEventListener("mousedown", updateMouseDownDataSet)
-            window.addEventListener("mouseup", updateMouseUpDataSet)
-            window.addEventListener("mousemove", updateMouseMove)
-
-            return () => {
-                window.removeEventListener("mousedown", updateMouseDownDataSet)
-                window.removeEventListener("mouseup", updateMouseUpDataSet)
-                window.removeEventListener("mousemove", updateMouseMove)
-            }
+                throttleTimeoutRef.current = null;
+            }, 5);
         }
-    }, [trackRef])
 
+
+    }
     return <section id='checklist' >
-        <div ref={trackRef} className="image-track clickable" data-mouse-down-at="0" data-prev-percentage="0">
+        <div ref={trackRef} className="image-track clickable" data-mouse-down-at="0" data-prev-percentage="0"
+            onMouseDown={updateMouseDownDataSet}
+            onMouseMove={updateMouseMove}
+            onMouseUp={updateMouseUpDataSet}
+        >
             <img className="image" src={pochacco} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
