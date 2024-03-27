@@ -4,7 +4,6 @@
     justify-content: center;
 
     .about--wrapper {
-        border-radius: 48px;
         width: 100%;
         max-width: 90rem;
 
@@ -14,10 +13,6 @@
             letter-spacing: .5rem;
         }
 
-        .canvas-line {
-            border: 1px solid white;
-        }
-
         .about--columns {
             display: flex;
             gap: 2rem;
@@ -25,9 +20,11 @@
 
             .about--box {
                 border-radius: 1.5rem;
+                background-color: #fff4f8;
+                color: black;
                 padding: 3rem 2rem;
                 margin-bottom: 2rem;
-                box-shadow: rgba(101, 108, 114, 0.2) 0px 8px 24px;
+                box-shadow: rgb(245, 194, 241, 0.45) 0px 5px 15px;
 
                 .pink-flower {
                     width: 2.5rem;

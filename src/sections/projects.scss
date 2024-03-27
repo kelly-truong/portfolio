@@ -3,30 +3,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
 
     .projects--wrapper {
-        background-color: black;
-        border-radius: 48px;
         width: 100%;
         max-width: 90rem;
-        padding: 4rem 6rem;
+
+        .projects--title {
+            font-size: 10rem;
+            padding: 2rem 0;
+            letter-spacing: .5rem;
+        }
 
         .columns {
             display: flex;
             gap: 2rem;
-            margin-left: 2rem;
+            padding: 4rem 6rem;
 
             .column-1 {
-                width: 25%;
+                width: calc(100% / 3);
 
                 .project__name--box {
+                    letter-spacing: .23rem;
+                    width: 80%;
                     display: flex;
                     align-items: center;
                     border: 2px solid white;
-                    border-radius: 1.5rem;
+                    border-radius: 1rem;
                     padding: 1rem 2rem;
-                    margin-bottom: 1.5rem;
+                    margin-bottom: 1rem;
                     cursor: pointer;
 
                     .heart {
@@ -51,7 +55,6 @@
             }
 
             .column-2 {
-                width: calc(75% / 2);
                 display: flex;
                 justify-content: center;
 
@@ -74,13 +77,6 @@
                     object-position: 40%;
                 }
             }
-
-            .column-3 {
-                width: calc(75% / 2);
-            }
-
         }
     }
-
-
 }

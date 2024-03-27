@@ -44,7 +44,7 @@ const Projects = () => {
 
     return < section id='projects' >
         <div className="projects--wrapper">
-            <h2>Projects</h2>
+            <div className="projects--title">PROJECTS</div>
             <div className="columns">
                 <div className="column-1">
                     {projects.map(project => (
