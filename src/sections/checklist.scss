@@ -6,7 +6,7 @@
     overflow: hidden;
     position: relative;
 
-    .image--track {
+    .image-track {
         display: flex;
         gap: 4vmin;
         position: absolute;
@@ -14,11 +14,11 @@
         top: 50%;
         transform: translate(0%, -50%);
 
-        img {
+        .image {
             width: 40vmin;
             height: 56vmin;
             object-fit: cover;
-            object-position: center;
+            object-position: center center;
         }
     }
     
