@@ -14,7 +14,7 @@ import eportfolio from '../assets/eportfolio.png'
 const projects = [
     {
         name: "Library",
-        desc: 'The best online library!',
+        desc: 'An online library project that started off with only html and css and then became more functional with react and javascript.',
     },
     {
         name: "Netflix Clone",
