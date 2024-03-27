@@ -106,6 +106,7 @@ const Canvas = () => {
     return <canvas ref={canvasRef}
         style={{
             position: "fixed",
+            zIndex: 1
         }}
         onMouseMove={onMouseMove}
     />
