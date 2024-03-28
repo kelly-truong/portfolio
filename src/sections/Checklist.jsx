@@ -1,6 +1,9 @@
 import react, { useEffect, useRef } from 'react'
 import './checklist.scss'
 import pochacco from '../assets/pochacco.jpg'
+import bear from '../assets/bear.jpg'
+import bear2 from '../assets/bear2.jpg'
+import watermelon from '../assets/watermelon.jpg'
 
 
 
@@ -56,11 +59,11 @@ const Checklist = () => {
             onMouseUp={updateMouseUpDataSet}
         >
             <img className="image" src={pochacco} alt="" draggable="false" />
+            <img className="image" src={watermelon} alt="" draggable="false" />
+            <img className="image" src={bear} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
+            <img className="image" src={bear2} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
         </div>
