@@ -8,7 +8,10 @@ import cinna from '../assets/cinna.jpg'
 import cinna2 from '../assets/cinna2.jpg'
 import cinna3 from '../assets/cinna3.jpg'
 import pochacco2 from '../assets/pochacco2.jpg'
-
+import boba from '../assets/boba.jpg'
+import dogs from '../assets/dogs.jpg'
+import mochi from '../assets/mochi.jpg'
+import cinnamoroll from '../assets/cinnamoroll.jpg'
 
 
 
@@ -62,6 +65,7 @@ const Checklist = () => {
             onMouseMove={updateMouseMove}
             onMouseUp={updateMouseUpDataSet}
         >
+            <img className="image" src={cinnamoroll} alt="" draggable="false" />
             <img className="image" src={pochacco} alt="" draggable="false" />
             <img className="image" src={watermelon} alt="" draggable="false" />
             <img className="image" src={bear} alt="" draggable="false" />
@@ -69,6 +73,9 @@ const Checklist = () => {
             <img className="image" src={pochacco2} alt="" draggable="false" />
             <img className="image" src={bear2} alt="" draggable="false" />
             <img className="image" src={cinna3} alt="" draggable="false" />
+            <img className="image" src={boba} alt="" draggable="false" />
+            <img className="image" src={mochi} alt="" draggable="false" />
+            <img className="image" src={dogs} alt="" draggable="false" />
             <img className="image" src={cinna2} alt="" draggable="false" />
         </div>
     </section >
