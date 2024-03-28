@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import react, { useEffect, useState } from 'react'
 import './projects.scss'
 import heart from '../assets/heart.svg'
 import pinkHeart from '../assets/pink-heart.png'
@@ -14,32 +14,53 @@ import eportfolio from '../assets/eportfolio.png'
 const projects = [
     {
         name: "Library",
-        desc: 'An online library project that started off with only html and css and then became more functional with react and javascript.',
+        desc: 'The online library started off with only html and css, but became more functional with javascript and react.',
     },
     {
         name: "Netflix Clone",
-        desc: 'netflix project',
+        desc: 'A somewhat functional Netflix Clone that helped to expand my understanding of javascript and react.',
     },
     {
         name: "Treact",
-        desc: 'treact project',
+        desc: 'My first independent project where I cloned a website design, testing my html and css skills.',
     },
     {
         name: "Todo List",
-        desc: 'todo project',
+        desc: 'A mini project that furthered my knowledge in react.',
     },
     {
         name: "E-portfolio",
-        desc: 'e-portfolio',
+        desc: 'A portfolio where I incorporated my learning of javascript into a project for the first time.',
     }
 ]
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(projects[0])
+    const [animate, setAnimate] = useState(null)
 
     const updateProject = (project) => {
         setSelectedProject(project)
     }
+
+    useEffect(() => {
+        const currentIndex = projects.findIndex(x => x.name === selectedProject.name)
+        const timer = setTimeout(() => {
+            setSelectedProject(projects[currentIndex + 1])
+            if (selectedProject === projects[4]) {
+                setSelectedProject(projects[0])
+            }
+        }, 7000)
+
+        if(selectedProject.name !== animate) {
+            setAnimate(selectedProject.name)
+        }
+
+        return () => {
+            clearTimeout(timer)
+        }
+        
+    }, [selectedProject])
+
 
 
     return < section id='projects' >
@@ -67,6 +88,12 @@ const Projects = () => {
                     <p>
                         {selectedProject.desc}
                     </p>
+
+                    <div className="bar--container">
+                        <span className="bar">
+                            <span className={"loading" +(animate === selectedProject.name ? " animate" : "")} onAnimationEnd={() => setAnimate(false)} ></span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

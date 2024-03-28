@@ -61,7 +61,7 @@
                 }
 
                 .treact--img {
-                    object-position: 30%;
+                    object-position: 28%;
                 }
 
                 .eportfolio--img {
@@ -71,7 +71,46 @@
 
             .column-3 {
                 width: 45rem;
-                
+
+                .bar--container {
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    width: 27rem;
+                    position: absolute;
+
+                    span {
+                        display: block;
+                    }
+
+                    .bar {
+                        background: rgba(158, 157, 157, 0.2);
+
+                        .loading {
+                            position: relative;
+                            background: pink;
+                            color: #fff;
+                            height: 0.3rem;
+                            width: 0;
+                        }
+
+                        .animate {
+                            animation: loader 7s linear infinite;
+                        }
+                    }
+                }
+
+                @keyframes loader {
+
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: 100%;
+                    }
+
+                }
+
             }
         }
     }
