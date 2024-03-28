@@ -6,10 +6,9 @@ import pinkFlower from '../assets/pink-flower.png'
 
 
 
-const About = ({ aboutRef, animate }) => {
-    console.log(animate, '?')
-    return <section id='about' ref={aboutRef} >
-        <div className={"about--wrapper" + (animate ? " show" : "")}>
+const About = ({ }) => {
+    return <section id='about'  >
+        <div className={"about--wrapper" + (true ? " show" : "")}>
             <div className="title">
                 ABOUT
             </div>

@@ -12,8 +12,6 @@ import Canvas from './components/Canvas';
 function App() {
   const navigate = useNavigate();
   const [init, setInit] = useState(true)
-  const [animate, setAnimate] = useState(null)
-  const aboutRef = useRef(null);
 
   const options = {
     rootMargin: '-100px',
@@ -25,26 +23,6 @@ function App() {
     }, 4444)
   }, [])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setAnimate(true)
-      } else {
-        setAnimate(false)
-      }
-    }, options)
-
-    if (aboutRef.current) {
-      observer.observe(aboutRef.current)
-    }
-
-    return () => {
-      if (aboutRef.current) {
-        observer.disconnect()
-      }
-    }
-  }, [aboutRef])
-
 
   return (
     <div className="App">
@@ -53,11 +31,11 @@ function App() {
       <div className="side-nav">
       </div>
       <div className={"content background--custom" + (init ? " content-inactive" : " content-active")}>
-        <Landing />
-        <About aboutRef={aboutRef} animate={animate} />
-        <Checklist />
-        <BentoBox />
+        <Landing init={init} />
+        <section />
+        <About />
         <Projects />
+        <Checklist />
       </div>
     </div>
   );
