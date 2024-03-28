@@ -1,43 +1,93 @@
-import react from 'react'
+import react, { useEffect, useRef, useState } from 'react'
 import './landing.scss'
 import flower from '../assets/flower.svg'
 import vid from '../assets/video.webm'
+import { useIntersectionObserver } from '../components/useIntersectionObserver'
 
 
 
-const Landing = () => {
+const options = {
+    rootMargin: '0px',
+}
 
-    return < section id='landing' >
-        <div className="landing--wrapper">
-            <h1 className="landing--title">POCHACCO & FROGGY</h1>
-            <div className="column--wrapper">
-                <div className="left--side">
-                    <h1 className="landing--title-2">NUBNUB</h1>
-                    <div className="cinnamoroll">
-                        <video width="900" height="700" autoPlay loop muted >
-                            <source src={vid} type="video/mp4" />
-                        </video>
-                    </div>
+const Landing = ({ init }) => {
+    const [containerRef, isVisible] = useIntersectionObserver(options);
+    const [randomText, setRandomText] = useState('');
+    const [targetValue, setTargetValue] = useState(0);
+    const [percentage, setPercentage] = useState(0)
+
+    useEffect(() => {
+        if (!init) {
+            const handleOnScroll = (e) => {
+                setPercentage(window.scrollY / containerRef.current.offsetHeight * 100)
+            }
+            window.addEventListener("scroll", handleOnScroll)
+
+            let result = [];
+            let index = 0;
+            let pushed = [];
+
+            const intervalId = setInterval(() => {
+                const realIndex = index / 5
+                if (realIndex > 11) {
+                    clearInterval(intervalId)
+                    return
+                }
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let desiredText = "Kelly Truong"
+
+                for (let i = 0; i < 12 - pushed.length; i++) {
+                    result[i] = characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                if (Number.isInteger(realIndex) && realIndex <= 13) {
+                    pushed.push(1)
+                    result[(desiredText.length - 1) - realIndex] = desiredText[(desiredText.length - 1) - realIndex]
+                }
+                setRandomText(result.join(''))
+                index++
+            }, 75); // Adjust the interval timing as needed
+
+
+
+            return () => {
+                window.removeEventListener("scroll", handleOnScroll)
+                clearInterval(intervalId); // Cleanup on unmount
+            }
+        }
+    }, [init])
+
+
+
+    return <section id='landing' ref={containerRef} className={((!init) ? " visible" : (!init && !isVisible) ? " hidden" : "")}
+    >
+        <div className="landing-bg">
+            <div className="left-col">
+                <div className="row" >
+                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
                 </div>
-                <div className="right--side">
-                    <div className="landing--ovals oval-1">
-                        <img className="flower" src={flower} alt="" />
-                        <h1 className="landing--title">CHICKEN NUGGIE</h1>
-                    </div>
-                    <div className="landing--ovals oval-2">
-                        <img className="flower" src={flower} alt="" />
-                        <h1 className="landing--title">CHICKEN NUGGIE</h1>
-                    </div>
-                    <div className="landing--ovals oval-3">
-                        <img className="flower" src={flower} alt="" />
-                        <h1 className="landing--title">CHICKEN NUGGIE</h1>
-                    </div>
-                    <div className="about--me">
-                        <h2>Kelly Truong</h2>
-                        <p>Hi! I'm currently a 3rd year Biology major at the University of Georiga. I love boba, plushies, cream puffs, chicken nuggies, and Ben.</p>
-                    </div>
+                <div className="row" >
+                    <span style={{ transform: `translate(${percentage * -1}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * -1}%,0)` }}>KELLY</span>
+                </div>
+                <div className="row" >
+                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
                 </div>
             </div>
+            <div className="right-col" style={{ transform: `translateY(${percentage * -1}%)` }}>
+                <div className="rotate">
+                    <span className='first'>{randomText} </span>
+                </div>
+            </div>
+        </div>
+        {/* <video width="900" height="700" autoPlay loop muted >
+                <source src={vid} type="video/mp4" />
+            </video> */}
+        <div className="landing-wrapper" style={{ opacity: `${1 - (percentage / 100)}` }}>
+            <div className="quote">"The goal is to seek new challenges, with the development of solutions as the natural outcome."</div>
         </div>
     </section >
 }

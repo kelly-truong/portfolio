@@ -1,16 +1,87 @@
 #landing {
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .landing--wrapper {
-        height: 90%;
+    .landing-bg {
+        --transform: 0%;
+        display: flex;
+        overflow: hidden;
+        position: fixed;
+        height: 100dvh;
         width: 100%;
-        max-width: 90rem;
+        z-index: 0;
+        padding: 0rem 2rem;
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            max-width: 85%;
+        }
+
+        .row {
+            --beginSlideIn: 150%;
+            position: relative;
+            flex-grow: 1;
+            font-size: 20rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            line-height: 1rem;
+            opacity: .05;
+            width: 100%;
+            text-wrap: nowrap;
+            overflow: hidden;
+
+
+            span {
+                font-weight: 500;
+                position: relative;
+            }
+
+
+
+        }
+
+
+
+
+        .right-col {
+            text-wrap: nowrap;
+            position: relative;
+
+            .rotate {
+                position: relative;
+                transform-origin: bottom left;
+                transform: rotate(90deg) translateX(-7rem) translateY(-4rem);
+                height: fit-content;
+                transition: opacity 2s 1.5s ease-in;
+                opacity: 0;
+            }
+
+            span {
+                font-size: 8.5rem;
+                font-weight: 500;
+            }
+        }
+
+    }
+
+
+
+    .landing-wrapper {
+        position: fixed;
+        height: 80%;
+        width: 100%;
+        max-width: 70rem;
         border-radius: 48px;
         padding: 4rem 6rem;
 
+        .quote {
+            text-transform: uppercase;
+            max-width: 15rem;
+            font-size: 1.5rem;
+        }
 
         .landing--title {
             font-size: 4.5rem;
@@ -77,5 +148,43 @@
 
             }
         }
+    }
+}
+
+.visible {
+    .row {
+        --translate: 0%;
+
+        &:nth-child(1) {
+            --translate: 150%;
+            animation: slideIn 2s cubic-bezier(.15, .57, .09, .97);
+        }
+
+        &:nth-child(2) {
+            --translate: -150%;
+            animation: slideIn 2s cubic-bezier(.15, .57, .09, .97);
+        }
+
+
+        &:nth-child(3) {
+            --translate: 150%;
+            animation: slideIn 2s cubic-bezier(.15, .57, .09, .97);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translate(var(--translate), 0);
+            }
+
+            to {
+                transform: translate(0%, 0);
+            }
+        }
+
+        // animation: slideIn 2s cubic-bezier(.15, .57, .09, .97) forwards;
+    }
+
+    .rotate {
+        opacity: 1 !important;
     }
 }

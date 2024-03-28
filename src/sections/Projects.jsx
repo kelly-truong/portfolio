@@ -47,8 +47,8 @@ const Projects = () => {
             <div className="title">PROJECTS</div>
             <div className="columns">
                 <div className="column-1">
-                    {projects.map(project => (
-                        <div className={`project__name--box clickable ${selectedProject === project ? "selected" : ""}`} onClick={() => updateProject(project)}>
+                    {projects.map((project, i) => (
+                        <div key={i} className={`project__name--box clickable ${selectedProject === project ? "selected" : ""}`} onClick={() => updateProject(project)}>
                             <img className={`heart ${selectedProject === project ? "pink-heart" : ""}`} src={selectedProject === project ? pinkHeart : heart} alt="" />
                             <span className="name">{project.name}</span>
                         </div>
