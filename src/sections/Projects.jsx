@@ -7,6 +7,8 @@ import netflix from '../assets/netflix.png'
 import treact from '../assets/treact.png'
 import todo from '../assets/todo.png'
 import eportfolio from '../assets/eportfolio.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 
 
@@ -15,22 +17,27 @@ const projects = [
     {
         name: "Library",
         desc: 'The online library started off with only html and css, but became more functional with javascript and react.',
+        lang: 'HTML, CSS, React, Javascript',
     },
     {
         name: "Netflix Clone",
         desc: 'A somewhat functional Netflix Clone that helped to expand my understanding of javascript and react.',
+        lang: 'HTML, CSS, React, Javascript',
     },
     {
         name: "Treact",
         desc: 'My first independent project where I cloned a website design, testing my html and css skills.',
+        lang: 'HTML, CSS',
     },
     {
         name: "Todo List",
         desc: 'A mini project that furthered my knowledge in react.',
+        lang: 'HTML, CSS, React, Javascript',
     },
     {
         name: "E-portfolio",
         desc: 'A portfolio where I incorporated my learning of javascript into a project for the first time.',
+        lang: 'HTML, CSS, Javascript',
     }
 ]
 
@@ -51,14 +58,14 @@ const Projects = () => {
             }
         }, 7000)
 
-        if(selectedProject.name !== animate) {
+        if (selectedProject.name !== animate) {
             setAnimate(selectedProject.name)
         }
 
         return () => {
             clearTimeout(timer)
         }
-        
+
     }, [selectedProject])
 
 
@@ -85,13 +92,26 @@ const Projects = () => {
                     />
                 </div>
                 <div className="column-3">
-                    <p>
+                    <p className="description">
                         {selectedProject.desc}
                     </p>
 
+                    <p className="languages">
+                        {selectedProject.lang}
+                    </p>
+
+                    <div className="links">
+                        <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
+                            <FontAwesomeIcon icon={faGithub} />
+                        </a>
+                        <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
+                            <FontAwesomeIcon icon="link" />
+                        </a>
+                    </div>
+
                     <div className="bar--container">
                         <span className="bar">
-                            <span className={"loading" +(animate === selectedProject.name ? " animate" : "")} onAnimationEnd={() => setAnimate(false)} ></span>
+                            <span className={"loading" + (animate === selectedProject.name ? " animate" : "")} onAnimationEnd={() => setAnimate(false)} ></span>
                         </span>
                     </div>
                 </div>
