@@ -4,6 +4,10 @@ import pochacco from '../assets/pochacco.jpg'
 import bear from '../assets/bear.jpg'
 import bear2 from '../assets/bear2.jpg'
 import watermelon from '../assets/watermelon.jpg'
+import cinna from '../assets/cinna.jpg'
+import cinna2 from '../assets/cinna2.jpg'
+import cinna3 from '../assets/cinna3.jpg'
+import pochacco2 from '../assets/pochacco2.jpg'
 
 
 
@@ -61,11 +65,11 @@ const Checklist = () => {
             <img className="image" src={pochacco} alt="" draggable="false" />
             <img className="image" src={watermelon} alt="" draggable="false" />
             <img className="image" src={bear} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
+            <img className="image" src={cinna} alt="" draggable="false" />
+            <img className="image" src={pochacco2} alt="" draggable="false" />
             <img className="image" src={bear2} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
+            <img className="image" src={cinna3} alt="" draggable="false" />
+            <img className="image" src={cinna2} alt="" draggable="false" />
         </div>
     </section >
 }
