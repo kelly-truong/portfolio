@@ -1,4 +1,4 @@
-import react, { useEffect, useRef } from 'react'
+import react, { useEffect, useRef, useState } from 'react'
 import './about.scss'
 import pinkFlower from '../assets/pink-flower.png'
 
@@ -19,6 +19,27 @@ const aboutMe = [{
 }]
 
 const About = ({ containerRef, currentSection, id }) => {
+    const [percentage, setPercentage] = useState(0)
+
+
+    useEffect(() => {
+        const center = containerRef.current[id].offsetTop + (containerRef.current[id].offsetHeight / 2)
+        const handleOnScroll = (e) => {
+            let tempPerc = ((window.scrollY - center) / containerRef.current[id].offsetHeight * 100);
+            setPercentage(tempPerc)
+        }
+        window.addEventListener("scroll", handleOnScroll)
+
+        return () => {
+            window.removeEventListener("scroll", handleOnScroll)
+        }
+
+    }, [])
+
+    console.log(percentage)
+    const xx = 50
+    const y = 60
+    const z = -45
     return <section id='about' className={currentSection === id ? 'about-visible' : ""} ref={el => containerRef.current[id] = el}  >
         <div className={"about--wrapper"}>
             <div className="title">
@@ -29,7 +50,9 @@ const About = ({ containerRef, currentSection, id }) => {
 
                 {aboutMe.map(x => {
                     return <div className={`about--column clickable ${x.pos}`}>
-                        <div className="about--box clickable">
+                        <div className="about--box clickable" style={{
+                            transform: `rotateX(${percentage * xx / 100}deg) rotateY(${percentage * y / 100}deg) rotateZ(${percentage * z / 100}deg)`
+                        }}>
                             <img className="pink-flower" src={pinkFlower} alt="" />
                             <div className="name">{x.name}</div>
                             <p>{x.desc}</p>

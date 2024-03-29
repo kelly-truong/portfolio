@@ -25,11 +25,11 @@
 
             .about--column {
                 position: absolute;
-                left: 50%;
+
                 top: 0rem;
-                transform: translateX(-50%);
+
                 opacity: 0;
-                transition: all 1.5s cubic-bezier(.15, .57, .09, .97);
+                // transition: all 1.5s cubic-bezier(.15, .57, .09, .97);
             }
 
             .about--box {
@@ -37,8 +37,8 @@
                 margin-bottom: 2rem;
                 height: 28rem;
                 width: 24.5rem;
-                transform: rotateX(50deg) rotateY(60deg) rotateZ(-45deg);
-                transition: all 1.5s cubic-bezier(.15, .57, .09, .97) 300ms;
+
+                // transition: all 1.5s cubic-bezier(.15, .57, .09, .97) 300ms;
                 box-shadow: rgb(249, 224, 219, 0.2) 0px 5px 15px;
                 padding: 3rem 2rem;
                 border-radius: 40px;
@@ -49,8 +49,6 @@
 
 
                 &:hover {
-                    transform: scale(1.01);
-
                     .pink-flower {
                         transform: rotate(375deg);
                     }
@@ -93,22 +91,76 @@
                 opacity: 1;
 
                 &.left {
+                    animation: move 1.5s cubic-bezier(.15, .57, .09, .97);
                     left: calc(25%);
                     transform: translateX(-75%);
+
+                    @keyframes move {
+                        from {
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+
+                        to {
+                            left: calc(25%);
+                            transform: translateX(-75%);
+                        }
+                    }
                 }
 
                 &.middle {
+                    animation: top 1.5s cubic-bezier(.15, .57, .09, .97);
+                    left: 50%;
+                    transform: translateX(-50%);
                     top: 4rem;
+
+                    @keyframes top {
+                        from {
+                            top: 0rem;
+                        }
+
+                        to {
+                            top: 4rem;
+                        }
+                    }
                 }
 
                 &.right {
+                    animation: left 1.5s cubic-bezier(.15, .57, .09, .97);
                     top: 8rem;
                     left: calc(75%);
                     transform: translateX(-25%);
+
+                    @keyframes left {
+                        from {
+                            top: 0rem;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+
+                        to {
+                            top: 8rem;
+                            left: calc(75%);
+                            transform: translateX(-25%);
+                        }
+
+                    }
                 }
 
                 .about--box {
-                    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                    animation: rotate 1.5s cubic-bezier(.15, .57, .09, .97) 300ms;
+
+                    @keyframes rotate {
+                        from {
+                            transform: rotateX(50deg) rotateY(60deg) rotateZ(-45deg);
+                        }
+
+                        to {
+                            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                        }
+                    }
+
                 }
 
             }
