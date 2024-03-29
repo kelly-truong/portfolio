@@ -6,7 +6,7 @@ const Loading = ({ init }) => {
 
     return <div className={"loading " + (init ? "" : "loading-done")}>
         <div className="cinnamoroll">
-            <video width="1200" height="1000" autoPlay loop muted >
+            <video width="1000" height="800" autoPlay loop muted >
                 <source src={vid} type="video/mp4" />
             </video>
         </div>
