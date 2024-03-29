@@ -27,48 +27,38 @@ const About = ({ containerRef, currentSection, id }) => {
             </div>
             <div className="about--columns">
 
-                <div id="dice">
-                    <div class="side front">
-                    </div>
-                    <div class="side front inner"></div>
-                    <div class="side top">
-                    </div>
-                    <div class="side top inner"></div>
-                    <div class="side right">
-                    </div>
-                    <div class="side right inner"></div>
-                    <div class="side left">
-                    </div>
-                    <div class="side left inner"></div>
-                    <div class="side bottom">
-                    </div>
-                    <div class="side bottom inner"></div>
-                    <div class="side back">
-                    </div>
-                    <div class="side back inner"></div>
-                    <div class="side cover x"></div>
-                    <div class="side cover y"></div>
-                    <div class="side cover z"></div>
-                </div>
+                {/* <div id="dice">
+                    <div class="side front" />
+
+                    <div class="side top" />
+
+                    <div class="side left" />
+
+
+                    <div class="side bottom" />
+
+                    <div class="side back" />
+
+
+                </div> */}
 
 
 
-                {/* {aboutMe.map(x => {
+                {aboutMe.map(x => {
                     return <div className={`about--column ${x.pos}`}>
                         <div className="about--box clickable">
-                            <div className="front">
+                            <div className="side front">
                                 <img className="pink-flower" src={pinkFlower} alt="" />
                                 <div className="name">{x.name}</div>
                                 <p>{x.desc}</p>
                             </div>
-                            <div className="left" />
-                            <div className="right" />
-                            <div className="back" />
-                            <div className="bottom" />
-                            <div className="top" />
+                            <div className="side left" />
+                            <div className="side back" />
+                            <div className="side bottom" />
+                            <div className="side top" />
                         </div>
                     </div>
-                })} */}
+                })}
 
             </div>
         </div>
