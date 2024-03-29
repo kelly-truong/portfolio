@@ -53,14 +53,14 @@
             .rotate {
                 position: relative;
                 transform-origin: bottom left;
-                transform: rotate(90deg) translateX(-7rem) translateY(-4rem);
+                transform: rotate(90deg) translateX(-8rem) translateY(-7rem);
                 height: fit-content;
                 transition: opacity 2s 1.5s ease-in;
                 opacity: 0;
             }
 
             span {
-                font-size: 8.5rem;
+                font-size: 10rem;
                 font-weight: 500;
             }
         }

@@ -8,22 +8,39 @@ import Landing from './sections/Landing';
 import Projects from './sections/Projects';
 import Loading from './components/Loading';
 import Canvas from './components/Canvas';
+import { useIntersectionObserver } from './components/useIntersectionObserver';
 
+const options = {
+  rootMargin: '0px',
+  threshold: .5
+}
 function App() {
   const navigate = useNavigate();
+  const [containerRef, isVisible] = useIntersectionObserver(options);
   const [init, setInit] = useState(true)
-
-  const options = {
-    rootMargin: '-100px',
-  }
+  const [currentSection, setCurrentSection] = useState(null)
 
   useEffect(() => {
     setTimeout(() => {
       setInit(false)
+      setCurrentSection(0)
     }, 4444)
+
   }, [])
 
-
+  useEffect(() => {
+    console.log(isVisible[0], 'what?')
+    if (isVisible[0] && isVisible[0] === "about") {
+      setCurrentSection(1)
+    } else if (isVisible[0] === "landing") {
+      setCurrentSection(0)
+    } else if (isVisible[0] === "projects") {
+      setCurrentSection(2)
+    }
+  }, [isVisible])
+  console.log(isVisible, 'FYUCK u')
+  //Play inital animation && scroll out transitions when its the current section.
+  //Else 
   return (
     <div className="App">
       {<Loading init={init} />}
@@ -31,10 +48,11 @@ function App() {
       <div className="side-nav">
       </div>
       <div className={"content background--custom" + (init ? " content-inactive" : " content-active")}>
-        <Landing init={init} />
+        <Landing id={0} currentSection={currentSection} containerRef={containerRef} />
         <section />
-        <About />
-        <Projects />
+        <About id={1} containerRef={containerRef} currentSection={currentSection} />
+        <section />
+        <Projects id={2} containerRef={containerRef} currentSection={currentSection} />
         <Checklist />
       </div>
     </div>

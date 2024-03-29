@@ -3,46 +3,93 @@
     align-items: center;
     justify-content: center;
 
+
+    .title {
+        opacity: 0;
+        transition: all 1s cubic-bezier(.15, .57, .09, .97);
+    }
+
     .about--wrapper {
+
+        position: fixed;
         width: 100%;
         max-width: 90rem;
+        top: 0;
 
-        &.show {
-            .title {
-                animation: show 1.25s ease-in forwards;
-            }
 
-            @keyframes show {
-                from {
-                    opacity: 0;
-                }
-
-                to {
-                    opacity: 1;
-                }
-            }
-        }
-
-        .title {
-            opacity: 0;
-        }
 
         .about--columns {
             display: flex;
             gap: 2rem;
-            padding: 4rem 6rem;
+            padding: 0 6rem;
+            position: relative;
+            width: 100%;
 
+            .about--column {
+                position: absolute;
+                left: 50%;
+                top: 0rem;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: all 1s cubic-bezier(.15, .57, .09, .97);
+            }
 
             .about--box {
-                border-radius: 1.5rem;
-                background-color: rgb(249, 224, 219);
                 color: black;
-                padding: 3rem 2rem;
                 margin-bottom: 2rem;
-                box-shadow: rgb(249, 224, 219, 0.2) 0px 5px 15px;
                 height: 34rem;
                 width: 24.5rem;
-                transition: all 300ms ease;
+                // transition: all 300ms ease;
+                position: relative;
+                transform-style: preserve-3d;
+                transform: rotateX(50deg) rotateY(60deg) rotateZ(-45deg);
+                transition: all 750ms cubic-bezier(.15, .57, .09, .97) 300ms;
+
+                // transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+
+
+                .front {
+                    padding: 3rem 2rem;
+                    box-shadow: rgb(249, 224, 219, 0.2) 0px 5px 15px;
+                }
+
+                .side {
+                    position: absolute;
+                    background-color: rgba(249, 224, 219);
+                    border: 1px solid gray;
+                    border-radius: 40px;
+                }
+
+                .front {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    transform: translateZ(100px);
+                }
+
+                .left {
+                    width: 1rem;
+                    height: calc(100% - 1rem);
+                    transform: rotateY(-90deg) translate3d(92px, 12px, 0px);
+                }
+
+                .back {
+                    width: 100%;
+                    height: 100%;
+                    transform: rotateX(-180deg) translateZ(-85px);
+                }
+
+                .bottom {
+                    height: 1rem;
+                    width: calc(100% - 1rem);
+                    transform: rotateX(-90deg) translateZ(531px) translateX(8px) translateY(-93px);
+                }
+
+                .top {
+                    height: 1rem;
+                    width: calc(100% - 1rem);
+                    transform: rotateX(90deg) translateZ(-4px) translateX(10px) translateY(93px)
+                }
 
                 &:hover {
                     transform: scale(1.01);
@@ -66,14 +113,47 @@
                     font-size: 2rem;
                 }
             }
+
         }
 
-        .middle {
-            margin-top: 4rem;
+
+    }
+
+}
+
+#about {
+    &.about-visible {
+        .about--wrapper {
+            .title {
+                opacity: 1;
+            }
         }
 
-        .right {
-            margin-top: 8rem;
+        .about--columns {
+
+            .about--column {
+                opacity: 1;
+
+                &.left {
+                    left: calc(25%);
+                    transform: translateX(-75%);
+                }
+
+                &.middle {
+                    top: 4rem;
+                }
+
+                &.right {
+                    top: 8rem;
+                    left: calc(75%);
+                    transform: translateX(-25%);
+                }
+
+                .about--box {
+                    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                }
+
+            }
         }
     }
 }

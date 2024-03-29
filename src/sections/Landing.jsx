@@ -6,20 +6,16 @@ import { useIntersectionObserver } from '../components/useIntersectionObserver'
 
 
 
-const options = {
-    rootMargin: '0px',
-}
 
-const Landing = ({ init }) => {
-    const [containerRef, isVisible] = useIntersectionObserver(options);
+const Landing = ({ currentSection, setCurrentSection, containerRef, id }) => {
     const [randomText, setRandomText] = useState('');
-    const [targetValue, setTargetValue] = useState(0);
     const [percentage, setPercentage] = useState(0)
 
+
     useEffect(() => {
-        if (!init) {
+        if (currentSection === 0) {
             const handleOnScroll = (e) => {
-                setPercentage(window.scrollY / containerRef.current.offsetHeight * 100)
+                setPercentage(window.scrollY / containerRef.current[id].offsetHeight * 100)
             }
             window.addEventListener("scroll", handleOnScroll)
 
@@ -54,11 +50,11 @@ const Landing = ({ init }) => {
                 clearInterval(intervalId); // Cleanup on unmount
             }
         }
-    }, [init])
+    }, [currentSection])
 
 
 
-    return <section id='landing' ref={containerRef} className={((!init) ? " visible" : (!init && !isVisible) ? " hidden" : "")}
+    return <section id='landing' ref={el => containerRef.current[id] = el} className={((currentSection === 0) ? " visible" : " hidden")}
     >
         <div className="landing-bg">
             <div className="left-col">
@@ -68,8 +64,8 @@ const Landing = ({ init }) => {
                     <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
                 </div>
                 <div className="row" >
-                    <span style={{ transform: `translate(${percentage * -1}%,0)` }}>KELLY</span>
-                    <span style={{ transform: `translate(${percentage * -1}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * -1 * 1.2}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * -1 * 1.2}%,0)` }}>KELLY</span>
                 </div>
                 <div className="row" >
                     <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
