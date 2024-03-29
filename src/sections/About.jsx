@@ -9,12 +9,12 @@ const aboutMe = [{
     pos: "left"
 },
 {
-    name: "Me",
+    name: "Favorites",
     desc: "My favorite things are chicken nuggies, cream puffs, plushies, and anything pink. I love trying new cafes and restaurants, especially boba shops!",
     pos: "middle"
 }, {
     name: "Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis, quasi laborum ducimus corrupti! Inventore sapiente dignissimos corporis.",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis,s.",
     pos: "right"
 }]
 
@@ -24,37 +24,19 @@ const About = ({ containerRef, currentSection, id }) => {
             <div className="title">
                 ABOUT
             </div>
-            <div className="about--columns">
-
-                {/* <div id="dice">
-                    <div class="side front" />
-
-                    <div class="side top" />
-
-                    <div class="side left" />
-
-
-                    <div class="side bottom" />
-
-                    <div class="side back" />
-
-
-                </div> */}
-
+            <div className="about--columns clickable">
 
 
                 {aboutMe.map(x => {
-                    return <div className={`about--column ${x.pos}`}>
+                    return <div className={`about--column clickable ${x.pos}`}>
                         <div className="about--box clickable">
-                            <div className="side front">
-                                <img className="pink-flower" src={pinkFlower} alt="" />
-                                <div className="name">{x.name}</div>
-                                <p>{x.desc}</p>
-                            </div>
-                            <div className="side left" />
+                            <img className="pink-flower" src={pinkFlower} alt="" />
+                            <div className="name">{x.name}</div>
+                            <p>{x.desc}</p>
+                            {/* <div className="side left" />
                             <div className="side back" />
                             <div className="side bottom" />
-                            <div className="side top" />
+                            <div className="side top" /> */}
                         </div>
                     </div>
                 })}

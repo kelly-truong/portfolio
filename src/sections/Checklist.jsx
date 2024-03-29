@@ -60,6 +60,7 @@ const Checklist = () => {
 
     }
     return <section id='checklist' >
+        <div className="title">GALLERY</div>
         <div ref={trackRef} className="image-track clickable" data-mouse-down-at="0" data-prev-percentage="0"
             onMouseDown={updateMouseDownDataSet}
             onMouseMove={updateMouseMove}
