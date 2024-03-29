@@ -35,7 +35,7 @@
 
             .about--box {
                 border-radius: 1.5rem;
-                background-color: rgba(249, 224, 219);
+                background-color: rgb(249, 224, 219);
                 color: black;
                 padding: 3rem 2rem;
                 margin-bottom: 2rem;
@@ -65,10 +65,6 @@
                     font-weight: 600;
                     font-size: 2rem;
                 }
-            }
-
-            about--box:hover {
-                border: 2px solid red;
             }
         }
 

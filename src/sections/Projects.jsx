@@ -20,7 +20,7 @@ const projects = [
         lang: 'HTML, CSS, React, Javascript',
     },
     {
-        name: "Netflix Clone",
+        name: "Netflix",
         desc: 'A somewhat functional Netflix Clone that helped to expand my understanding of javascript and react.',
         lang: 'HTML, CSS, React, Javascript',
     },
@@ -83,9 +83,9 @@ const Projects = () => {
                     ))}
                 </div>
                 <div className="column-2">
-                    <img className={`project--img ${selectedProject.name === "Netflix Clone" ? "netflix--img" : selectedProject.name === "Treact" ? "treact--img" : selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
+                    <img className={`project--img ${selectedProject.name === "Netflix" ? "netflix--img" : selectedProject.name === "Treact" ? "treact--img" : selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
                         src={selectedProject.name === "Library" ? library
-                            : selectedProject.name === "Netflix Clone" ? netflix
+                            : selectedProject.name === "Netflix" ? netflix
                                 : selectedProject.name === "Treact" ? treact
                                     : selectedProject.name === "Todo List" ? todo
                                         : selectedProject.name === "E-portfolio" ? eportfolio : ""}
