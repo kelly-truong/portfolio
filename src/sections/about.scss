@@ -135,8 +135,8 @@
                 opacity: 1;
 
                 &.left {
-                    left: calc(20%);
-                    transform: translateX(-80%);
+                    left: calc(25%);
+                    transform: translateX(-75%);
                 }
 
                 &.middle {
@@ -145,8 +145,8 @@
 
                 &.right {
                     top: 8rem;
-                    left: calc(80%);
-                    transform: translateX(-20%);
+                    left: calc(75%);
+                    transform: translateX(-25%);
                 }
 
                 .about--box {

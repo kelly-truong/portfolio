@@ -34,9 +34,11 @@ function App() {
       setCurrentSection(1)
     } else if (isVisible[0] === "landing") {
       setCurrentSection(0)
+    } else if (isVisible[0] === "projects") {
+      setCurrentSection(2)
     }
   }, [isVisible])
-
+  console.log(isVisible, 'FYUCK u')
   //Play inital animation && scroll out transitions when its the current section.
   //Else 
   return (
@@ -49,7 +51,8 @@ function App() {
         <Landing id={0} currentSection={currentSection} containerRef={containerRef} />
         <section />
         <About id={1} containerRef={containerRef} currentSection={currentSection} />
-        <Projects />
+        <section />
+        <Projects id={2} containerRef={containerRef} currentSection={currentSection} />
         <Checklist />
       </div>
     </div>

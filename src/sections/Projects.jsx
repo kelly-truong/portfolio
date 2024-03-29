@@ -41,7 +41,7 @@ const projects = [
     }
 ]
 
-const Projects = () => {
+const Projects = ({ containerRef, id }) => {
     const [selectedProject, setSelectedProject] = useState(projects[0])
     const [animate, setAnimate] = useState(null)
 
@@ -70,7 +70,7 @@ const Projects = () => {
 
 
 
-    return < section id='projects' >
+    return < section id='projects' ref={el => containerRef.current[id] = el} >
         <div className="projects--wrapper">
             <div className="title">PROJECTS</div>
             <div className="columns">
