@@ -11,20 +11,31 @@
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    overflow: hidden;
 
     .loading-name {
         display: flex;
         position: absolute;
-        top: 60%;
+        bottom: 20%;
         left: 50%;
         transform: translate(-50%, 0);
     }
 
     .cinnamoroll {
         position: absolute;
-        top: -5%;
+        top: 0;
+        left: -10%;
+        animation: walk 5s linear;
     }
 
+    @keyframes walk {
+        0% {
+            left: -10%;
+        }
+        100% {
+            left: 100%;
+        }
+    }
 
     &-done {
         z-index: -9999;
@@ -34,8 +45,8 @@
         --delay: 1s;
         display: inline-block;
         color: var(--pink);
-        font-weight: bold;
-        font-size: 8rem;
+        // font-weight: bold;
+        font-size: 5rem;
         transform: rotateX(180deg) rotateY(180deg) translateY(100%);
         animation: loading .875s cubic-bezier(.15, .57, .09, .97) var(--delay) forwards;
         opacity: 0;

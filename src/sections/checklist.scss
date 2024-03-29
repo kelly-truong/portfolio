@@ -5,6 +5,11 @@
     overflow: hidden;
     position: relative;
 
+
+    .title {
+        padding-left: 14.6rem;
+    }
+
     .image-track {
         display: flex;
         gap: 4vmin;
@@ -12,7 +17,8 @@
         left: 50%;
         top: 50%;
         transform: translate(0%, -50%);
-margin-top: 5rem;
+        margin-top: 5rem;
+
         .image {
             width: 40vmin;
             height: 56vmin;

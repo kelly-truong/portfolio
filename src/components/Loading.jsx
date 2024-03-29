@@ -10,22 +10,23 @@ const Loading = ({ init }) => {
                 <source src={vid} type="video/mp4" />
             </video>
         </div>
+
         <div className="loading-name">
             <div className="first-name">
-                {["K", "e", "l", "l", "y"].map((x, i) => {
+                {["L", "o", "a", "d", "i", "n", "g"].map((x, i) => {
                     return <span className="letter" key={i}>
                         {x}
                     </span>
                 })}
 
             </div>
-            <div className="last-name">
+            {/* <div className="last-name">
                 {["T", "r", "u", "o", "n", "g"].map((x, i) => {
                     return <span className="letter" key={i}>
                         {x}
                     </span>
                 })}
-            </div>
+            </div> */}
         </div>
 
 
