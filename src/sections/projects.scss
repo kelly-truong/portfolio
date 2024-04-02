@@ -37,8 +37,6 @@
                         transform: scale(0.96);
                     }
 
-                    
-
                     .heart {
                         filter: invert(1);
                         width: 2rem;
@@ -56,21 +54,6 @@
                 }
             }
 
-            .project__name--box:after {
-                .project--img {
-                    animation: fadeIn 900ms forwards;
-                }
-            }
-
-            @keyframes fadeIn {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-
             .column-2 {
                 width: 45rem;
                 display: flex;
@@ -82,7 +65,10 @@
                     border-radius: 1rem;
                     object-fit: cover;
                     opacity: 1;
-                    animation: fadeIn 300ms;
+                }
+
+                .fade-in {
+                    animation: fadeIn 1s ease;
                 }
 
                 @keyframes fadeIn {
@@ -91,7 +77,20 @@
                     }
 
                     100% {
-                        opacity: 100%;
+                        opacity: 1;
+                    }
+                }
+
+                .fade-out {
+                    animation: fadeOut 1s ease-in;
+                }
+
+                @keyframes fadeOut {
+                    from {
+                        opacity: 1;
+                    }
+                    to {
+                        opacity: 0;
                     }
                 }
 
@@ -160,7 +159,7 @@
                         }
 
                         .animate {
-                            animation: loader 7s linear infinite;
+                            animation: loader 6s linear infinite;
                         }
                     }
                 }

@@ -44,6 +44,8 @@ const projects = [
 const Projects = ({ containerRef, id }) => {
     const [selectedProject, setSelectedProject] = useState(projects[0])
     const [animate, setAnimate] = useState(null)
+    const [fadeInDone, setFadeInDone] = useState(false)
+    const [fadeOut, setFadeOut] = useState(false)
 
     const updateProject = (project) => {
         setSelectedProject(project)
@@ -56,7 +58,14 @@ const Projects = ({ containerRef, id }) => {
             if (selectedProject === projects[4]) {
                 setSelectedProject(projects[0])
             }
-        }, 7000)
+            setFadeInDone(false)
+        }, 6000)
+        const animationTimeOut = setTimeout(() => {
+               setFadeOut(true)
+               setTimeout(() => {
+                    setFadeOut(false)
+               }, 1000)
+        }, 5000)
 
         if (selectedProject.name !== animate) {
             setAnimate(selectedProject.name)
@@ -64,11 +73,12 @@ const Projects = ({ containerRef, id }) => {
 
         return () => {
             clearTimeout(timer)
+            clearTimeout(animationTimeOut)
         }
 
     }, [selectedProject])
 
-
+console.log(fadeOut)
 
     return < section id='projects' ref={el => containerRef.current[id] = el} >
         <div className="projects--wrapper">
@@ -83,12 +93,16 @@ const Projects = ({ containerRef, id }) => {
                     ))}
                 </div>
                 <div className="column-2">
-                    <img className={`project--img ${selectedProject.name === "Netflix" ? "netflix--img" : selectedProject.name === "Treact" ? "treact--img" : selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
+                    <img className={`project--img 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""}
+                    ${selectedProject.name === "Netflix" ? "netflix--img" : selectedProject.name === "Treact" ? "treact--img" : selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
                         src={selectedProject.name === "Library" ? library
                             : selectedProject.name === "Netflix" ? netflix
                                 : selectedProject.name === "Treact" ? treact
                                     : selectedProject.name === "Todo List" ? todo
                                         : selectedProject.name === "E-portfolio" ? eportfolio : ""}
+                    onAnimationEnd={() => setFadeInDone(true)}
                     />
                 </div>
                 <div className="column-3">
