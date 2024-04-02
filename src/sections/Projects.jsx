@@ -118,7 +118,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                         <div
                             key={i}
 
-                            className={`project__name--box clickable ${selectedProject === project ? "selected" : ""}`}
+                            className={`project--btn clickable ${selectedProject === project ? "selected" : ""}`}
 
                             onClick={() => updateProject(project)}>
                             <img className={`heart ${selectedProject === project ? "pink-heart" : ""}`} src={selectedProject === project ? pinkHeart : heart} alt="" />
@@ -127,39 +127,61 @@ const Projects = ({ containerRef, id, currentSection }) => {
                     ))}
                 </div>
                 <div className="column-2">
-                    {/* {selectedProject.name === "Netflix" && <img className={`project--img 
-                    ${!fadeInDone ? "fade-in" : ""}
-                    ${fadeOut ? "fade-out" : ""}`}
-                        src={netflix}
-                    />} */}
-                    <img className={`project--img 
+                    {selectedProject.name === "Netflix" && <img className={`project--img 
                     ${!fadeInDone ? "fade-in" : ""}
                     ${fadeOut ? "fade-out" : ""}
-                    ${selectedProject.name === "Netflix" ? "netflix--img" : selectedProject.name === "Treact" ? "treact--img" : selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
-                        src={selectedProject.name === "Library" ? library
-                            : selectedProject.name === "Netflix" ? netflix
-                                : selectedProject.name === "Treact" ? treact
-                                    : selectedProject.name === "Todo List" ? todo
-                                        : selectedProject.name === "E-portfolio" ? eportfolio : ""}
+                    ${selectedProject.name === "Netflix" ? "netflix--img" : ""}`}
+                        src={netflix}
                         onAnimationEnd={() => setFadeInDone(true)}
-                    />
+                    />}
+                    {selectedProject.name === "Library" && <img className={`project--img 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""}`}
+                        src={library}
+                        onAnimationEnd={() => setFadeInDone(true)}
+                    />}
+                    {selectedProject.name === "Treact" && <img className={`project--img 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""}
+                    ${selectedProject.name === "Treact" ? "treact--img" : ""}`}
+                        src={treact}
+                        onAnimationEnd={() => setFadeInDone(true)}
+                    />}
+                    {selectedProject.name === "Todo List" && <img className={`project--img 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""}`}
+                        src={todo}
+                        onAnimationEnd={() => setFadeInDone(true)}
+                    />}
+                    {selectedProject.name === "E-portfolio" && <img className={`project--img 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""}
+                    ${selectedProject.name === "E-portfolio" ? "eportfolio--img" : ""}`}
+                        src={eportfolio}
+                        onAnimationEnd={() => setFadeInDone(true)}
+                    />}
                 </div>
                 <div className="column-3">
-                    <p className="description">
-                        {selectedProject.desc}
-                    </p>
+                    <div className={`info 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""} `}
+                        onAnimationEnd={() => setFadeInDone(true)}>
+                        <p className="description">
+                            {selectedProject.desc}
+                        </p>
 
-                    <p className="languages">
-                        {selectedProject.lang}
-                    </p>
+                        <p className="languages">
+                            {selectedProject.lang}
+                        </p>
 
-                    <div className="links">
-                        <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
-                            <FontAwesomeIcon icon={faGithub} />
-                        </a>
-                        <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
-                            <FontAwesomeIcon icon="link" />
-                        </a>
+                        <div className="links">
+                            <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                            <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon="link" />
+                            </a>
+                        </div>
                     </div>
 
                     <div className="bar--container">

@@ -26,7 +26,7 @@
                 height: 100%;
                 flex-grow: 1;
 
-                .project__name--box {
+                .project--btn {
                     display: flex;
                     align-items: center;
                     border: 2px solid white;
@@ -74,34 +74,6 @@
                     border-radius: 1rem;
                     object-fit: cover;
                     opacity: 1;
-                }
-
-                .fade-in {
-                    animation: fadeIn 1s ease;
-                }
-
-                @keyframes fadeIn {
-                    0% {
-                        opacity: 0;
-                    }
-
-                    100% {
-                        opacity: 1;
-                    }
-                }
-
-                .fade-out {
-                    animation: fadeOut 1s ease-in;
-                }
-
-                @keyframes fadeOut {
-                    from {
-                        opacity: 1;
-                    }
-
-                    to {
-                        opacity: 0;
-                    }
                 }
 
                 .netflix--img {
@@ -187,6 +159,33 @@
                 }
 
             }
+            .fade-in {
+                animation: fadeIn 1s ease;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            .fade-out {
+                animation: fadeOut 1s ease-in;
+            }
+
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: 0;
+                }
+            }
         }
 
         &.show {
@@ -195,8 +194,6 @@
             .title {
                 opacity: 1;
                 animation: show 1s ease-in;
-
-
             }
 
             .columns {
@@ -204,16 +201,17 @@
                 animation: show 1s ease-in;
             }
 
-
             @keyframes show {
                 to {
                     opacity: 1;
                 }
             }
 
-            .project__name--box {
+            .project--btn,
+            .project--img,
+            .column-3 {
                 --delay: 250ms;
-                animation: fadeInBtn 1s ease-in forwards var(--delay);
+                animation: fadeInScroll 1s ease-in forwards var(--delay);
 
                 &:nth-child(2) {
                     --delay: 750ms;
@@ -230,15 +228,13 @@
                 &:nth-child(5) {
                     --delay: 2.25s;
                 }
-
-
-                @keyframes fadeInBtn {
-                    to {
-                        opacity: 1;
-                    }
-                }
             }
 
+            @keyframes fadeInScroll {
+                to {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
