@@ -19,33 +19,32 @@ const aboutMe = [{
 }]
 
 const About = ({ containerRef, currentSection, id }) => {
-    const [percentage, setPercentage] = useState(0)
-
+    const [percentage, setPercentage] = useState(null)
 
     useEffect(() => {
-
-        const handleOnScroll = (e) => {
-            let tempPerc = ((window.scrollY - containerRef.current[id].offsetHeight) / containerRef.current[id].offsetHeight * 100 * 1.25);
-            if (tempPerc < 0) {
-                tempPerc = tempPerc * -1
+        if (currentSection === 1) {
+            const handleOnScroll = (e) => {
+                let tempPerc = ((window.scrollY - containerRef.current[id].offsetHeight) / containerRef.current[id].offsetHeight * 100 * 1.25);
+                if (tempPerc < 0) {
+                    tempPerc = tempPerc * -1
+                }
+                setPercentage(tempPerc)
             }
-            setPercentage(tempPerc)
-        }
-        window.addEventListener("scroll", handleOnScroll)
-
-        return () => {
-            window.removeEventListener("scroll", handleOnScroll)
+            window.addEventListener("scroll", handleOnScroll)
+            return () => {
+                window.removeEventListener("scroll", handleOnScroll)
+            }
         }
 
-    }, [])
-
+    }, [currentSection])
+    console.log(percentage)
     return <section id='about' className={currentSection === id ? 'about-visible' : ""} ref={el => containerRef.current[id] = el}  >
         <div className={"about--wrapper"} >
-            <div className="title" style={{ opacity: `${1 - (percentage / 100)}` }}>
+            <div className="title" style={{ opacity: `${percentage ? 1 - (percentage / 100) : 0}` }}>
                 ABOUT
             </div>
             <div className="about--columns clickable"
-                style={{ opacity: `${1 - (percentage / 100)}` }}
+                style={{ opacity: `${1.2 - (percentage / 100)}` }}
             >
 
 
