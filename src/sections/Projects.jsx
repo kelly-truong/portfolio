@@ -105,10 +105,8 @@ const Projects = ({ containerRef, id, currentSection }) => {
     }, [currentSection])
 
 
-    console.log(percentage)
-
     return < section id='projects' ref={el => containerRef.current[id] = el} >
-        <div className={"projects--wrapper " + (currentSection === 2 ? "show" : "")} >
+        <div className={"projects--wrapper " + (currentSection === 2 ? "show" : "hidden")} >
             <div className="title" onAnimationEnd={() => {
                 setFinishedAnimation(true)
             }} style={{ opacity: `${(percentage && finishedAnimation) ? 1 - (percentage / 100) : 0}` }}>PROJECTS</div>

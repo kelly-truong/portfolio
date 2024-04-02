@@ -15,7 +15,7 @@ import cinnamoroll from '../assets/cinnamoroll.jpg'
 
 
 
-const Checklist = () => {
+const Checklist = ({ containerRef, currentSection, id }) => {
     const trackRef = useRef(null);
     const throttleTimeoutRef = useRef(null);
 
@@ -56,28 +56,32 @@ const Checklist = () => {
                 throttleTimeoutRef.current = null;
             }, 5);
         }
-
-
     }
-    return <section id='checklist' >
-        <div className="title">GALLERY</div>
-        <div ref={trackRef} className="image-track clickable" data-mouse-down-at="0" data-prev-percentage="0"
-            onMouseDown={updateMouseDownDataSet}
-            onMouseMove={updateMouseMove}
-            onMouseUp={updateMouseUpDataSet}
-        >
-            <img className="image" src={cinnamoroll} alt="" draggable="false" />
-            <img className="image" src={pochacco} alt="" draggable="false" />
-            <img className="image" src={watermelon} alt="" draggable="false" />
-            <img className="image" src={bear} alt="" draggable="false" />
-            <img className="image" src={cinna} alt="" draggable="false" />
-            <img className="image" src={pochacco2} alt="" draggable="false" />
-            <img className="image" src={bear2} alt="" draggable="false" />
-            <img className="image" src={cinna3} alt="" draggable="false" />
-            <img className="image" src={boba} alt="" draggable="false" />
-            <img className="image" src={mochi} alt="" draggable="false" />
-            <img className="image" src={dogs} alt="" draggable="false" />
-            <img className="image" src={cinna2} alt="" draggable="false" />
+
+
+    return <section id='gallery'
+        ref={el => containerRef.current[id] = el}
+    >
+        <div className={"gallery-wrapper " + (currentSection === 3 ? "show" : "hidden")} >
+            <div className="title">GALLERY</div>
+            <div ref={trackRef} className="image-track clickable" data-mouse-down-at="0" data-prev-percentage="0"
+                onMouseDown={updateMouseDownDataSet}
+                onMouseMove={updateMouseMove}
+                onMouseUp={updateMouseUpDataSet}
+            >
+                <img className="image" src={cinnamoroll} alt="" draggable="false" />
+                <img className="image" src={pochacco} alt="" draggable="false" />
+                <img className="image" src={watermelon} alt="" draggable="false" />
+                <img className="image" src={bear} alt="" draggable="false" />
+                <img className="image" src={cinna} alt="" draggable="false" />
+                <img className="image" src={pochacco2} alt="" draggable="false" />
+                <img className="image" src={bear2} alt="" draggable="false" />
+                <img className="image" src={cinna3} alt="" draggable="false" />
+                <img className="image" src={boba} alt="" draggable="false" />
+                <img className="image" src={mochi} alt="" draggable="false" />
+                <img className="image" src={dogs} alt="" draggable="false" />
+                <img className="image" src={cinna2} alt="" draggable="false" />
+            </div>
         </div>
     </section >
 }

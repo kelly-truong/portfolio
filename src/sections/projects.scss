@@ -6,13 +6,13 @@
 
     .projects--wrapper {
         width: 100%;
-        max-width: 90rem;
         position: fixed;
         top: 0;
         z-index: 1;
 
         .title {
             opacity: 0;
+            padding-left: 5rem;
         }
 
         .columns {
@@ -239,6 +239,9 @@
                 }
             }
 
+        }
+        &.hidden{
+            display: none;
         }
     }
 }

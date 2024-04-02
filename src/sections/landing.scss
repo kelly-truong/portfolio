@@ -49,11 +49,16 @@
         .right-col {
             text-wrap: nowrap;
             position: relative;
+            height: 100%;
+            width: 100%;
 
             .rotate {
-                position: relative;
                 transform-origin: bottom left;
-                transform: rotate(90deg) translateX(-8rem) translateY(-7rem);
+                position: absolute;
+                margin-top: 2.5rem;
+                left: 50%;
+                top: 25%;
+                transform: rotate(90deg) translateX(-50%) translateY(25%);
                 height: fit-content;
                 transition: opacity 2s 1.5s ease-in;
                 opacity: 0;

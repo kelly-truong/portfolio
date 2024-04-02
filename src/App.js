@@ -35,6 +35,8 @@ function App() {
       setCurrentSection(1)
     } else if (isVisible[0] === "projects") {
       setCurrentSection(2)
+    } else if (isVisible[0] === "gallery") {
+      setCurrentSection(3)
     }
   }, [isVisible])
 
@@ -51,7 +53,7 @@ function App() {
         <Landing id={0} init={init} currentSection={currentSection} containerRef={containerRef} />
         <About id={1} containerRef={containerRef} currentSection={currentSection} />
         <Projects id={2} containerRef={containerRef} currentSection={currentSection} />
-        <Checklist />
+        <Checklist id={3} containerRef={containerRef} currentSection={currentSection} />
       </div>
     </div>
   );

@@ -6,14 +6,13 @@
     .title {
         opacity: 0;
         transition: all 1s cubic-bezier(.15, .57, .09, .97);
+        padding-left: 5rem;
     }
 
     .about--wrapper {
         position: fixed;
         width: 100%;
-        max-width: 90rem;
         top: 0;
-        z-index: 1;
 
         .about--columns {
             display: flex;

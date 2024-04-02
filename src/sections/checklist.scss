@@ -1,13 +1,16 @@
-#checklist {
-    height: 100vh;
+.gallery-wrapper {
     width: 100%;
     margin: 0rem;
     overflow: hidden;
-    position: relative;
-
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 1;
 
     .title {
-        padding: 2rem 0 2rem 14.6rem;
+        height: fit-content;
+        width: fit-content;
+        padding-left: 5rem;
     }
 
     .image-track {
@@ -25,6 +28,10 @@
             object-fit: cover;
             object-position: 100% center;
         }
+    }
+
+    &.hidden {
+        display: none;
     }
 
 }
