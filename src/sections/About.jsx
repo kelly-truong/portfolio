@@ -2,6 +2,8 @@ import react, { useEffect, useRef, useState } from 'react'
 import './about.scss'
 import pinkFlower from '../assets/pink-flower.png'
 import pochaccoSticker from '../assets/pochacco-sticker.png'
+import thumb from '../assets/thumbs.webp'
+import html from '../assets/html.png'
 
 
 const aboutMe = [{
@@ -14,8 +16,8 @@ const aboutMe = [{
     desc: "My favorite things are chicken nuggies, cream puffs, plushies, and anything pink. I love trying new cafes and restaurants, especially boba shops!",
     pos: "middle"
 }, {
-    name: "Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores accusamus natus vero nulla quidem esse at eligendi magnam sunt in quisquam facilis,s.",
+    name: "Goals",
+    desc: "I look forward to utilizing and improving my current skillset in hopes to develop unique, creative, and preferably cute websites!",
     pos: "right"
 }]
 
@@ -52,12 +54,19 @@ const About = ({ containerRef, currentSection, id }) => {
                         <div className="about--box clickable" >
                             <img className="pink-flower" src={pinkFlower} alt="" />
                             <div className="name">{x.name}</div>
-                            <p>{x.desc}</p>
+                            <p>{x.desc}
+                            {x.name === "Skills" && 
+                            <><img className="language-img" src={html} />
+                            <img className="language-img" src={html} />
+                            <img className="language-img" src={html} />
+                            <img className="language-img" src={html} /></>}
+                            </p>
                             {/* <div className="side left" />
                             <div className="side back" />
                             <div className="side bottom" />
                             <div className="side top" /> */}
-                            <img className="pochacco" src={pochaccoSticker} alt="" />
+                            {x.name === "Favorites" && <img className="pochacco" src={pochaccoSticker} alt="" />}
+                            {x.name === "Goals" && <img className="thumb" src={thumb} alt="" />}
                         </div>
                         
                     </div>
