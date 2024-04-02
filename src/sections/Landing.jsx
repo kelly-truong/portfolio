@@ -1,21 +1,19 @@
 import react, { useEffect, useRef, useState } from 'react'
 import './landing.scss'
-import flower from '../assets/flower.svg'
-import vid from '../assets/video.webm'
-import { useIntersectionObserver } from '../components/useIntersectionObserver'
 
 
 
 
-const Landing = ({ currentSection, setCurrentSection, containerRef, id }) => {
+
+const Landing = ({ currentSection, init, containerRef, id }) => {
     const [randomText, setRandomText] = useState('');
     const [percentage, setPercentage] = useState(0)
 
 
     useEffect(() => {
-        if (currentSection === 0) {
+        if (currentSection === 0 && !init) {
             const handleOnScroll = (e) => {
-                setPercentage(window.scrollY / containerRef.current[id].offsetHeight * 100)
+                setPercentage(window.scrollY / containerRef.current[id].offsetHeight * 100 * 1.25)
             }
             window.addEventListener("scroll", handleOnScroll)
 
@@ -50,27 +48,27 @@ const Landing = ({ currentSection, setCurrentSection, containerRef, id }) => {
                 clearInterval(intervalId); // Cleanup on unmount
             }
         }
-    }, [currentSection])
+    }, [currentSection, init])
 
 
 
-    return <section id='landing' ref={el => containerRef.current[id] = el} className={((currentSection === 0) ? " visible" : " hidden")}
+    return <section id='landing' ref={el => containerRef.current[id] = el} className={((currentSection === 0 && !init) ? " visible" : " hidden")}
     >
         <div className="landing-bg">
             <div className="left-col">
                 <div className="row" >
-                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
-                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
-                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * 1.5}%,0)` }}>KELLY KELLY</span>
+                    {/* <span style={{ transform: `translate(${percentage * 1.5}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * 1.5}%,0)` }}>KELLY</span> */}
                 </div>
                 <div className="row" >
-                    <span style={{ transform: `translate(${percentage * -1 * 1.2}%,0)` }}>KELLY</span>
-                    <span style={{ transform: `translate(${percentage * -1 * 1.2}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * 1.5 * -1}%,0)` }}>KELLY KELLY</span>
+                    {/* <span style={{ transform: `translate(${percentage * 1.5 * -1 * 1.2}%,0)` }}>KELLY</span> */}
                 </div>
                 <div className="row" >
-                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
-                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
-                    <span style={{ transform: `translate(${percentage}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * 1.5}%,0)` }}>KELLY KELLY </span>
+                    {/* <span style={{ transform: `translate(${percentage * 1.5}%,0)` }}>KELLY</span>
+                    <span style={{ transform: `translate(${percentage * 1.5}%,0)` }}>KELLY</span> */}
                 </div>
             </div>
             <div className="right-col" style={{ transform: `translateY(${percentage * -1}%)` }}>

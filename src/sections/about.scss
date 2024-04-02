@@ -147,8 +147,8 @@
                 }
 
                 .about--box {
-                    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-                    animation: rotate 1.5s cubic-bezier(.15, .57, .09, .97) 300ms;
+                    transform: rotateX(50deg) rotateY(60deg) rotateZ(-45deg);
+                    animation: rotate 1.5s cubic-bezier(.15, .57, .09, .97) 300ms forwards;
 
                     @keyframes rotate {
                         from {
