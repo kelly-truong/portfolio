@@ -1,5 +1,5 @@
 import react, { useEffect, useRef } from 'react'
-import './checklist.scss'
+import './gallery.scss'
 import pochacco from '../assets/pochacco.jpg'
 import bear from '../assets/bear.jpg'
 import bear2 from '../assets/bear2.jpg'
@@ -15,7 +15,7 @@ import cinnamoroll from '../assets/cinnamoroll.jpg'
 
 
 
-const Checklist = ({ containerRef, currentSection, id }) => {
+const Gallery = ({ containerRef, currentSection, id }) => {
     const trackRef = useRef(null);
     const throttleTimeoutRef = useRef(null);
 
@@ -85,4 +85,4 @@ const Checklist = ({ containerRef, currentSection, id }) => {
         </div>
     </section >
 }
-export default Checklist
+export default Gallery

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import './App.scss';
 import About from './sections/About';
 import BentoBox from './sections/BentoBox';
-import Checklist from './sections/Checklist';
+import Gallery from './sections/Gallery';
 import Landing from './sections/Landing';
 import Projects from './sections/Projects';
 import Loading from './components/Loading';
@@ -53,7 +53,7 @@ function App() {
         <Landing id={0} init={init} currentSection={currentSection} containerRef={containerRef} />
         <About id={1} containerRef={containerRef} currentSection={currentSection} />
         <Projects id={2} containerRef={containerRef} currentSection={currentSection} />
-        <Checklist id={3} containerRef={containerRef} currentSection={currentSection} />
+        <Gallery id={3} containerRef={containerRef} currentSection={currentSection} />
       </div>
     </div>
   );
