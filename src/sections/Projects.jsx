@@ -181,7 +181,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                                 <FontAwesomeIcon icon="link" />
                             </a>
                         </div>
-                        
+
                     </div>
                     <img className="sticker" src={sticker} alt="" />
                     <div className="bar--container">
