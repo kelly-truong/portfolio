@@ -11,8 +11,8 @@ import Canvas from './components/Canvas';
 import { useIntersectionObserver } from './components/useIntersectionObserver';
 
 const options = {
-  rootMargin: '0px',
-  threshold: .5
+
+  threshold: .8
 }
 function App() {
   const navigate = useNavigate();
@@ -29,16 +29,16 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log(isVisible[0], 'what?')
-    if (isVisible[0] && isVisible[0] === "about") {
-      setCurrentSection(1)
-    } else if (isVisible[0] === "landing") {
+    if (isVisible[0] === "landing") {
       setCurrentSection(0)
+    } else if (isVisible[0] && isVisible[0] === "about") {
+      setCurrentSection(1)
     } else if (isVisible[0] === "projects") {
       setCurrentSection(2)
     }
   }, [isVisible])
-  console.log(isVisible, 'FYUCK u')
+
+
   //Play inital animation && scroll out transitions when its the current section.
   //Else 
   return (
@@ -48,10 +48,8 @@ function App() {
       <div className="side-nav">
       </div>
       <div className={"content background--custom" + (init ? " content-inactive" : " content-active")}>
-        <Landing id={0} currentSection={currentSection} containerRef={containerRef} />
-        <section />
+        <Landing id={0} init={init} currentSection={currentSection} containerRef={containerRef} />
         <About id={1} containerRef={containerRef} currentSection={currentSection} />
-        <section />
         <Projects id={2} containerRef={containerRef} currentSection={currentSection} />
         <Checklist />
       </div>
