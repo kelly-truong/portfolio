@@ -37,14 +37,13 @@ const About = ({ containerRef, currentSection, id }) => {
         }
 
     }, [currentSection])
-    console.log(percentage)
     return <section id='about' className={currentSection === id ? 'about-visible' : ""} ref={el => containerRef.current[id] = el}  >
         <div className={"about--wrapper"} >
             <div className="title" style={{ opacity: `${percentage ? 1 - (percentage / 100) : 0}` }}>
                 ABOUT
             </div>
             <div className="about--columns clickable"
-                style={{ opacity: `${1.2 - (percentage / 100)}` }}
+                style={{ opacity: `${1 - (percentage / 100)}` }}
             >
 
 

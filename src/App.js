@@ -11,9 +11,9 @@ import Canvas from './components/Canvas';
 import { useIntersectionObserver } from './components/useIntersectionObserver';
 
 const options = {
-
   threshold: .8
 }
+
 function App() {
   const navigate = useNavigate();
   const [containerRef, isVisible] = useIntersectionObserver(options);

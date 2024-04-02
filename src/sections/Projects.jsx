@@ -41,58 +41,97 @@ const projects = [
     }
 ]
 
-const Projects = ({ containerRef, id }) => {
+const Projects = ({ containerRef, id, currentSection }) => {
     const [selectedProject, setSelectedProject] = useState(projects[0])
     const [animate, setAnimate] = useState(null)
     const [fadeInDone, setFadeInDone] = useState(false)
     const [fadeOut, setFadeOut] = useState(false)
+    const [percentage, setPercentage] = useState(null)
+    const [finishedAnimation, setFinishedAnimation] = useState(false)
 
     const updateProject = (project) => {
         setSelectedProject(project)
     }
 
     useEffect(() => {
-        const currentIndex = projects.findIndex(x => x.name === selectedProject.name)
-        const timer = setTimeout(() => {
-            setSelectedProject(projects[currentIndex + 1])
-            if (selectedProject === projects[4]) {
-                setSelectedProject(projects[0])
-            }
-            setFadeInDone(false)
-        }, 6000)
-        const animationTimeOut = setTimeout(() => {
-               setFadeOut(true)
-               setTimeout(() => {
+        let animationTimeOut;
+        let timer;
+        if (currentSection === 2) {
+            const currentIndex = projects.findIndex(x => x.name === selectedProject.name)
+            timer = setTimeout(() => {
+                setSelectedProject(projects[currentIndex + 1])
+                if (selectedProject === projects[4]) {
+                    setSelectedProject(projects[0])
+                }
+                setFadeInDone(false)
+            }, 6000)
+            animationTimeOut = setTimeout(() => {
+                setFadeOut(true)
+                setTimeout(() => {
                     setFadeOut(false)
-               }, 1000)
-        }, 5000)
+                }, 1000)
+            }, 5000)
 
-        if (selectedProject.name !== animate) {
-            setAnimate(selectedProject.name)
+            if (selectedProject.name !== animate) {
+                setAnimate(selectedProject.name)
+            }
         }
 
         return () => {
             clearTimeout(timer)
             clearTimeout(animationTimeOut)
+            setAnimate(null)
         }
+    }, [selectedProject, currentSection])
 
-    }, [selectedProject])
 
-console.log(fadeOut)
+    useEffect(() => {
+        if (currentSection === 2) {
+            const handleOnScroll = (e) => {
+                let tempPerc = ((window.scrollY - containerRef.current[id].offsetTop) / containerRef.current[id].offsetHeight * 100 * 1.25);
+                if (tempPerc < 0) {
+                    tempPerc = tempPerc * -1
+                }
+                setPercentage(tempPerc)
+            }
+            window.addEventListener("scroll", handleOnScroll)
+            return () => {
+                window.removeEventListener("scroll", handleOnScroll)
+            }
+        }
+        return () => {
+            setFinishedAnimation(false)
+        }
+    }, [currentSection])
+
+
+    console.log(percentage)
 
     return < section id='projects' ref={el => containerRef.current[id] = el} >
-        <div className="projects--wrapper">
-            <div className="title">PROJECTS</div>
-            <div className="columns">
+        <div className={"projects--wrapper " + (currentSection === 2 ? "show" : "")} >
+            <div className="title" onAnimationEnd={() => {
+                setFinishedAnimation(true)
+            }} style={{ opacity: `${(percentage && finishedAnimation) ? 1 - (percentage / 100) : 0}` }}>PROJECTS</div>
+            <div className="columns" style={{ opacity: `${(percentage && finishedAnimation) ? 1 - (percentage / 100) : 0}` }}>
                 <div className="column-1">
                     {projects.map((project, i) => (
-                        <div key={i} className={`project__name--box clickable ${selectedProject === project ? "selected" : ""}`} onClick={() => updateProject(project)}>
+                        <div
+                            key={i}
+
+                            className={`project__name--box clickable ${selectedProject === project ? "selected" : ""}`}
+
+                            onClick={() => updateProject(project)}>
                             <img className={`heart ${selectedProject === project ? "pink-heart" : ""}`} src={selectedProject === project ? pinkHeart : heart} alt="" />
                             <span className="name">{project.name}</span>
                         </div>
                     ))}
                 </div>
                 <div className="column-2">
+                    {/* {selectedProject.name === "Netflix" && <img className={`project--img 
+                    ${!fadeInDone ? "fade-in" : ""}
+                    ${fadeOut ? "fade-out" : ""}`}
+                        src={netflix}
+                    />} */}
                     <img className={`project--img 
                     ${!fadeInDone ? "fade-in" : ""}
                     ${fadeOut ? "fade-out" : ""}
@@ -102,7 +141,7 @@ console.log(fadeOut)
                                 : selectedProject.name === "Treact" ? treact
                                     : selectedProject.name === "Todo List" ? todo
                                         : selectedProject.name === "E-portfolio" ? eportfolio : ""}
-                    onAnimationEnd={() => setFadeInDone(true)}
+                        onAnimationEnd={() => setFadeInDone(true)}
                     />
                 </div>
                 <div className="column-3">

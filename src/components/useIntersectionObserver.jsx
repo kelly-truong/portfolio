@@ -22,7 +22,9 @@ export const useIntersectionObserver = (options) => {
         return () => {
             if (containerRef.current?.length > 0) {
                 containerRef.current.forEach(x => {
-                    observer.unobserve(x)
+                    if (x) {
+                        observer.unobserve(x)
+                    }
                     observer.disconnect();
                 })
             }
