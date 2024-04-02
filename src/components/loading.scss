@@ -32,6 +32,7 @@
         0% {
             left: -10%;
         }
+
         100% {
             left: 100%;
         }
@@ -64,11 +65,15 @@
         }
 
         &:nth-child(4) {
-            --delay: 2.25s;
+            --delay: 2.5s;
         }
 
         &:nth-child(5) {
             --delay: 2s;
+        }
+
+        &:nth-child(6) {
+            --delay: 1.5s;
         }
 
         &:last-child {
