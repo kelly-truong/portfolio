@@ -1,6 +1,7 @@
 import react, { useEffect, useRef, useState } from 'react'
 import './about.scss'
 import pinkFlower from '../assets/pink-flower.png'
+import pochaccoSticker from '../assets/pochacco-sticker.png'
 
 
 const aboutMe = [{
@@ -46,7 +47,6 @@ const About = ({ containerRef, currentSection, id }) => {
                 style={{ opacity: `${1 - (percentage / 100)}` }}
             >
 
-
                 {aboutMe.map(x => {
                     return <div className={`about--column clickable ${x.pos}`}>
                         <div className="about--box clickable" >
@@ -57,11 +57,14 @@ const About = ({ containerRef, currentSection, id }) => {
                             <div className="side back" />
                             <div className="side bottom" />
                             <div className="side top" /> */}
+                            <img className="pochacco" src={pochaccoSticker} alt="" />
                         </div>
+                        
                     </div>
                 })}
-
+               
             </div>
+            
         </div>
     </section >
 }
