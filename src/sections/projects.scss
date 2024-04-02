@@ -9,10 +9,15 @@
         position: fixed;
         top: 0;
         z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
         .title {
             opacity: 0;
             padding-left: 5rem;
+            width: 100%;
         }
 
         .columns {
@@ -20,6 +25,7 @@
             gap: 2rem;
             padding: 4rem 6rem;
             opacity: 0;
+            max-width: 90rem;
 
             .column-1 {
                 width: 32rem;
@@ -159,6 +165,7 @@
                 }
 
             }
+
             .fade-in {
                 animation: fadeIn 1s ease;
             }
@@ -236,7 +243,8 @@
                 }
             }
         }
-        &.hidden{
+
+        &.hidden {
             display: none;
         }
     }
