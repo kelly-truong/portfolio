@@ -9,6 +9,7 @@ import todo from '../assets/todo.png'
 import eportfolio from '../assets/eportfolio.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import sticker from '../assets/cinnamoroll-sticker.png'
 
 
 
@@ -180,8 +181,9 @@ const Projects = ({ containerRef, id, currentSection }) => {
                                 <FontAwesomeIcon icon="link" />
                             </a>
                         </div>
+                        
                     </div>
-
+                    <img className="sticker" src={sticker} alt="" />
                     <div className="bar--container">
                         <span className="bar">
                             <span className={"loading" + (animate === selectedProject.name ? " animate" : "")} onAnimationEnd={() => setAnimate(false)} ></span>

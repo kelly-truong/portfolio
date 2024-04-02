@@ -124,6 +124,14 @@
                     margin-bottom: 1rem;
                 }
 
+                .sticker {
+                    width: 10rem;
+                    position: absolute;
+                    right: 1rem;
+                    bottom: 3.2rem;
+                    z-index: 2;
+                }
+
                 .bar--container {
                     border-radius: 1rem;
                     overflow: hidden;
@@ -144,6 +152,7 @@
                             color: #fff;
                             height: 0.3rem;
                             width: 0;
+                            z-index: 1;
                         }
 
                         .animate {
