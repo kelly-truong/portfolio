@@ -63,7 +63,7 @@ const About = ({ containerRef, currentSection, id }) => {
                             <div className="side back" />
                             <div className="side bottom" />
                             <div className="side top" /> */}
-                            {x.name === "Me" && <img className="run" src={run} />}
+                            {/* {x.name === "Me" && <img className="run" src={run} />} */}
                             {x.name === "Favorites" && <img className="pochacco" src={pochaccoSticker} />}
                             {x.name === "Goals" && <img className="thumb" src={thumb} />}
                         </div>

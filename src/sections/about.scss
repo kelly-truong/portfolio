@@ -34,6 +34,7 @@
                 // transition: all 1.5s cubic-bezier(.15, .57, .09, .97);
             }
 
+
             .about--box {
                 position: relative;
                 margin-bottom: 2rem;
@@ -73,16 +74,25 @@
                 .language-img {
                     width: 4rem;
                 }
+
+
             }
 
-        }
+            .left {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background-image: url('../assets/run.png');
+                    background-repeat: no-repeat;
+                    background-size: 10rem;
+                    width: 10rem;
+                    height: 10rem;
+                    top: 50%;
+                    left: -5rem;
+                    z-index: -1;
+                }
+            }
 
-        .run {
-            width: 10rem;
-            position: absolute;
-            top: 50%;
-            left: -10rem;
-            z-index: -1;
         }
 
         .pochacco {
@@ -196,6 +206,7 @@
             animation: popUp 2s ease forwards;
 
             @keyframes popUp {
+
                 0%,
                 20%,
                 50%,
@@ -214,22 +225,25 @@
             }
         }
 
-        .run {
-            animation: bounce-in-right 2s ease infinite;
 
-            @keyframes bounce-in-right {
-                0% {
-                  opacity: 0;
-                  transform: translateX(300px);
+        .left {
+            &::before {
+                content: '';
+                animation: bounce-in-right 2s ease forwards;
+
+                @keyframes bounce-in-right {
+                    0% {
+                        transform: translateX(300px);
+                    }
+
+                    100% {
+                        transform: translateX(-5rem);
+                    }
                 }
-                60% {
-                  opacity: 1;
-                  transform: translateX(-30px);
-                }
-                80% { transform: translateX(10px); }
-                100% { transform: translateX(0); }
-              }
-              
+
+            }
         }
+
+
     }
 }
