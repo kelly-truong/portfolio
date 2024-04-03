@@ -8,6 +8,7 @@
     z-index: 1;
 
     .title {
+        opacity: 0;
         height: fit-content;
         width: fit-content;
         padding-left: 5rem;
@@ -17,9 +18,10 @@
         display: flex;
         gap: 4vmin;
         position: absolute;
-        left: 50%;
+        left: 150%;
         top: 50%;
-        transform: translate(0%, -50%) scale(0.5);
+        transform: scale(.3) translate(0, -50%);
+        transform-origin: left top;
         margin-top: 5rem;
 
         .image {
@@ -32,6 +34,58 @@
 
     &.hidden {
         display: none;
+
+        .image-track {
+            display: none;
+        }
     }
 
+    &.show {
+        .title {
+            opacity: 1;
+            animation: fadein 2s ease;
+
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .image-track {
+            animation: flyin 2.5s cubic-bezier(.46, .04, .29, .93);
+            left: 50%;
+            transition: all 1s ease-in;
+            transform: scale(1) translate(0, -50%);
+
+            @keyframes flyin {
+                from {
+                    left: 150%;
+                }
+
+                50% {
+                    left: 0%;
+                }
+
+                to {
+                    left: 50%;
+                }
+            }
+
+            @keyframes scale {
+                0% {
+                    transform: scale(.3) translate(0, -50%);
+                }
+
+                100% {
+                    transform: scale(1) translate(0, -50%);
+                }
+
+            }
+        }
+    }
 }

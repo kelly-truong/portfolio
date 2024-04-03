@@ -52,7 +52,9 @@ function App() {
       <div className={"content background--custom" + (init ? " content-inactive" : " content-active")}>
         <Landing id={0} init={init} currentSection={currentSection} containerRef={containerRef} />
         <About id={1} containerRef={containerRef} currentSection={currentSection} />
+        <section style={{ height: "20dvh" }} />
         <Projects id={2} containerRef={containerRef} currentSection={currentSection} />
+        <section style={{ height: "20dvh" }} />
         <Gallery id={3} containerRef={containerRef} currentSection={currentSection} />
       </div>
     </div>

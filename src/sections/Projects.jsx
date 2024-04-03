@@ -110,8 +110,8 @@ const Projects = ({ containerRef, id, currentSection }) => {
         <div className={"projects--wrapper " + (currentSection === 2 ? "show" : "hidden")} >
             <div className="title" onAnimationEnd={() => {
                 setFinishedAnimation(true)
-            }} style={{ opacity: `${(percentage && finishedAnimation) ? 1 - (percentage / 100) : 0}` }}>PROJECTS</div>
-            <div className="columns" style={{ opacity: `${(percentage && finishedAnimation) ? 1 - (percentage / 100) : 0}` }}>
+            }} style={{ opacity: `${(percentage && finishedAnimation) ? 1.2 - (percentage / 100) : 0}` }}>PROJECTS</div>
+            <div className="columns" style={{ opacity: `${(percentage && finishedAnimation) ? 1.2 - (percentage / 100) : 0}` }}>
                 <div className="column-1">
                     {projects.map((project, i) => (
                         <div
@@ -127,9 +127,9 @@ const Projects = ({ containerRef, id, currentSection }) => {
                 </div>
                 <div className="column-2">
                     {selectedProject.name === "Netflix" && <img className={`project--img 
-                    ${!fadeInDone ? "fade-in" : ""}
-                    ${fadeOut ? "fade-out" : ""}
-                    ${selectedProject.name === "Netflix" ? "netflix--img" : ""}`}
+                    ${!fadeInDone ? " fade-in " : ""}
+                    ${fadeOut ? " fade-out " : ""}
+                    ${selectedProject.name === "Netflix" ? " netflix--img" : ""}`}
                         src={netflix}
                         onAnimationEnd={() => setFadeInDone(true)}
                     />}
