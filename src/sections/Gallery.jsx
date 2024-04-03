@@ -99,13 +99,14 @@ const Gallery = ({ containerRef, currentSection, id }) => {
         }
     }
 
+    console.log(currentSection, percentage)
 
     return <section id='gallery'
         ref={el => containerRef.current[id] = el}
     >
         <div className={"gallery-wrapper " + (currentSection === 3 ? "show" : "hidden")} >
             <div className="title"
-                style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }}>
+                style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }}>
                 GALLERY
             </div>
             <div ref={trackRef} className="image-track clickable" data-mouse-down-at="0" data-prev-percentage="0"
@@ -117,18 +118,18 @@ const Gallery = ({ containerRef, currentSection, id }) => {
                 onTouchMove={updateMouseMove}
 
             >
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinnamoroll} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={pochacco} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={watermelon} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={bear} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinna} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={pochacco2} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={bear2} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinna3} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={boba} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={mochi} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={dogs} alt="" draggable="false" />
-                <img style={{ opacity: `${(percentage) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinna2} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinnamoroll} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={pochacco} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={watermelon} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={bear} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinna} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={pochacco2} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={bear2} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinna3} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={boba} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={mochi} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={dogs} alt="" draggable="false" />
+                <img style={{ opacity: `${(percentage !== null) ? 1 - (percentage / 100) : 0}` }} className="image" src={cinna2} alt="" draggable="false" />
             </div>
         </div>
     </section >
