@@ -42,8 +42,6 @@ const About = ({ containerRef, currentSection, id }) => {
     }, [currentSection])
 
 
-    console.log(percentage, 'FUCK')
-
 
     return <section id='about' className={currentSection === id ? 'about-visible' : ""} ref={el => containerRef.current[id] = el}  >
         <div className={"about--wrapper"} >
