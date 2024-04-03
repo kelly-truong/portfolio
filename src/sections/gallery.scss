@@ -23,12 +23,18 @@
         transform: scale(.3) translate(0, -50%);
         transform-origin: left top;
         margin-top: 5rem;
+        cursor: grab;
+
+        &:active {
+            cursor: grabbing;
+        }
 
         .image {
             width: 40vmin;
             height: 56vmin;
             object-fit: cover;
             object-position: 100% center;
+           
         }
     }
 
