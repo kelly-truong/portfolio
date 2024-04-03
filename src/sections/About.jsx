@@ -3,7 +3,8 @@ import './about.scss'
 import pinkFlower from '../assets/pink-flower.png'
 import pochaccoSticker from '../assets/pochacco-sticker.png'
 import thumb from '../assets/thumbs.webp'
-import html from '../assets/html.png'
+import side from '../assets/sideways.png'
+import run from '../assets/run.png'
 
 
 const aboutMe = [{
@@ -57,19 +58,14 @@ const About = ({ containerRef, currentSection, id }) => {
                         <div className="about--box clickable" >
                             <img className="pink-flower" src={pinkFlower} alt="" />
                             <div className="name">{x.name}</div>
-                            <p>{x.desc}
-                                {x.name === "Skills" &&
-                                    <><img className="language-img" src={html} />
-                                        <img className="language-img" src={html} />
-                                        <img className="language-img" src={html} />
-                                        <img className="language-img" src={html} /></>}
-                            </p>
+                            <p>{x.desc}</p>
                             {/* <div className="side left" />
                             <div className="side back" />
                             <div className="side bottom" />
                             <div className="side top" /> */}
-                            {x.name === "Favorites" && <img className="pochacco" src={pochaccoSticker} alt="" />}
-                            {x.name === "Goals" && <img className="thumb" src={thumb} alt="" />}
+                            {x.name === "Me" && <img className="run" src={run} />}
+                            {x.name === "Favorites" && <img className="pochacco" src={pochaccoSticker} />}
+                            {x.name === "Goals" && <img className="thumb" src={thumb} />}
                         </div>
 
                     </div>

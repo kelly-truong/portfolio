@@ -39,6 +39,7 @@
                 margin-bottom: 2rem;
                 height: 28rem;
                 width: 24.5rem;
+                z-index: 3;
 
                 box-shadow: rgb(249, 224, 219, 0.2) 0px 5px 15px;
                 padding: 3rem 2rem;
@@ -74,6 +75,14 @@
                 }
             }
 
+        }
+
+        .run {
+            width: 10rem;
+            position: absolute;
+            top: 50%;
+            left: -10rem;
+            z-index: -1;
         }
 
         .pochacco {
@@ -203,6 +212,24 @@
                     transform: translateY(-15px);
                 }
             }
+        }
+
+        .run {
+            animation: bounce-in-right 2s ease infinite;
+
+            @keyframes bounce-in-right {
+                0% {
+                  opacity: 0;
+                  transform: translateX(300px);
+                }
+                60% {
+                  opacity: 1;
+                  transform: translateX(-30px);
+                }
+                80% { transform: translateX(10px); }
+                100% { transform: translateX(0); }
+              }
+              
         }
     }
 }
