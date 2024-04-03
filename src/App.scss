@@ -3,6 +3,7 @@
     --bg: #1a1a1b;
     --fontColor: #edede9;
     color: var(--fontColor);
+    user-select: none;
 }
 
 section {
@@ -88,4 +89,8 @@ section {
 p {
     font-size: 1.5rem;
     line-height: 1.5;
+}
+
+img {
+    pointer-events: none;
 }
