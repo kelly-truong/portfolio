@@ -179,7 +179,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                             <a href="https://github.com/kelly-truong/library-react" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
-                            <a href="https://library-react-4q8ijp6a7-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                            <a href="https://library-react-git-main-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon="link" />
                             </a>
                             </>}
@@ -188,7 +188,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                             <a href="https://github.com/kelly-truong/netflix-clone" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
-                            <a href="https://netflix-clone-7pl5opwrd-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                            <a href="https://netflix-clone-git-master-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon="link" />
                             </a>
                             </>}
@@ -197,7 +197,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                             <a href="https://github.com/kelly-truong/treact" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
-                            <a href="https://treact-o4ads7br6-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                            <a href="https://treact-git-main-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon="link" />
                             </a>
                             </>}
@@ -206,7 +206,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                             <a href="https://github.com/kelly-truong/task-list" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
-                            <a href="https://todo-jx20ys9vd-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                            <a href="https://todo-app-git-master-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon="link" />
                             </a>
                             </>}
@@ -215,7 +215,7 @@ const Projects = ({ containerRef, id, currentSection }) => {
                             <a href="https://github.com/kelly-truong/e-portfolio" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
-                            <a href="https://e-portfolio-q10dlx3rl-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                            <a href="https://e-portfolio-git-main-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon="link" />
                             </a>
                             </>}
