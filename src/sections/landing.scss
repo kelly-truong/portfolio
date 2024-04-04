@@ -199,3 +199,21 @@
         opacity: 1 !important;
     }
 }
+
+@media (max-width: 1200px) {
+    #landing {
+        .landing-bg {
+            .right-col {
+                .rotate {
+                    margin-top: 1.5rem;
+                }
+
+                span {
+                    font-size: 8rem;
+                }
+            }
+        }
+    }
+
+
+}
