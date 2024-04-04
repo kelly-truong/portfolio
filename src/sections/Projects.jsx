@@ -174,12 +174,51 @@ const Projects = ({ containerRef, id, currentSection }) => {
                         </p>
 
                         <div className="links">
-                            <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
+                            {selectedProject.name === "Library" && 
+                            <>
+                            <a href="https://github.com/kelly-truong/library-react" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon={faGithub} />
                             </a>
-                            <a href="https://www.smokonow.com/products/hank-yeti-big-foot-plush" target="_blank" className="clickable">
+                            <a href="https://library-react-4q8ijp6a7-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
                                 <FontAwesomeIcon icon="link" />
                             </a>
+                            </>}
+                            {selectedProject.name === "Netflix" && 
+                            <>
+                            <a href="https://github.com/kelly-truong/netflix-clone" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                            <a href="https://netflix-clone-7pl5opwrd-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon="link" />
+                            </a>
+                            </>}
+                            {selectedProject.name === "Treact" && 
+                            <>
+                            <a href="https://github.com/kelly-truong/treact" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                            <a href="https://treact-o4ads7br6-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon="link" />
+                            </a>
+                            </>}
+                            {selectedProject.name === "Todo List" && 
+                            <>
+                            <a href="https://github.com/kelly-truong/task-list" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                            <a href="https://todo-jx20ys9vd-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon="link" />
+                            </a>
+                            </>}
+                            {selectedProject.name === "E-portfolio" && 
+                            <>
+                            <a href="https://github.com/kelly-truong/e-portfolio" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                            <a href="https://e-portfolio-q10dlx3rl-kelly-truongs-projects.vercel.app/" target="_blank" className="clickable">
+                                <FontAwesomeIcon icon="link" />
+                            </a>
+                            </>}
                         </div>
 
                     </div>
