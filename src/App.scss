@@ -9,8 +9,7 @@
 section {
     height: 100dvh;
 
-    &:nth-of-type(even) {
-    }
+    &:nth-of-type(even) {}
 }
 
 .canvas {
@@ -93,4 +92,11 @@ p {
 
 img {
     pointer-events: none;
+}
+
+@media (max-width:1200px) {
+    .title {
+        padding: 1rem;
+        font-size: 8rem;
+    }
 }
