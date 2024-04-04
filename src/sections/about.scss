@@ -247,3 +247,39 @@
 
     }
 }
+
+
+@media (max-width: 1200px) {
+    #about {
+        .about--wrapper {
+
+            .about--columns {
+                .left {
+                    &::before {
+                        top: 90%;
+                        left: 19rem;
+                    }
+                }
+
+                .about--column {
+                    .about--box {
+                        width: 20rem;
+                        height: 24rem;
+                        padding: 1rem 2rem;
+
+                        .pink-flower {
+                            margin-bottom: .5rem;
+
+
+                        }
+
+                        .name {
+                            margin-bottom: unset;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

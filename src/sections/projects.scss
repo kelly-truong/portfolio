@@ -279,3 +279,80 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    #projects {
+
+        .projects--wrapper {
+            height: 100%;
+
+            .columns {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                padding: 0 4rem;
+                gap: 1.25rem;
+                flex-grow: 1;
+
+                .column-1 {
+                    display: flex;
+                    flex-direction: unset;
+                    gap: 1rem;
+                    width: 45rem;
+                    letter-spacing: 1rem;
+
+                    .name {
+                        font-size: 1rem;
+                    }
+
+                    .project--btn {
+                        padding: 1rem 1rem;
+
+                        .heart {
+                            width: 1rem;
+                            height: 1rem;
+                            margin-right: .5rem;
+                        }
+                    }
+                }
+
+                .column-2 {
+                    .project--img {
+                        height: 20rem;
+                    }
+                }
+
+
+                .column-3 {
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        gap: 2rem;
+                        padding-bottom: 2.5rem;
+                    }
+
+                    .languages {
+                        margin-bottom: unset;
+                    }
+
+                    .description {
+                        display: none;
+                    }
+
+                    .sticker {
+                        width: 8rem;
+                        bottom: 0;
+                    }
+
+                    .bar--container {
+                        width: 100%;
+                        bottom: 0;
+                    }
+                }
+
+            }
+
+
+        }
+    }
+}
