@@ -99,8 +99,6 @@ const Gallery = ({ containerRef, currentSection, id }) => {
         }
     }
 
-    console.log(currentSection, percentage)
-
     return <section id='gallery'
         ref={el => containerRef.current[id] = el}
     >

@@ -9,16 +9,16 @@ import run from '../assets/run.png'
 
 const aboutMe = [{
     name: "Me",
-    desc: "I'm a 3rd year Biology major at the University of Georgia. I'm currently on a pre-optometry track but have found a new interest in frontend developing.",
+    desc: "I'm a Software Engineer and recent University of Georgia graduate that shifted from a pre-optometry to pursue a new path in developing.",
     pos: "left"
 },
 {
     name: "Favorites",
-    desc: "My favorite things are chicken nuggies, cream puffs, plushies, and anything pink. I love trying new cafes and restaurants, especially boba shops!",
+    desc: "My favorite things are plushies, blind boxes, and anything pink. I love trying new cafes and restaurants, especially boba shops!",
     pos: "middle"
 }, {
     name: "Goals",
-    desc: "I look forward to utilizing and improving my current skillset in hopes to develop unique, creative, and preferably cute websites!",
+    desc: "I look forward to utilizing and improving my current skillset in hopes to develop unique and creative websites!",
     pos: "right"
 }]
 
@@ -54,7 +54,7 @@ const About = ({ containerRef, currentSection, id }) => {
             >
 
                 {aboutMe.map(x => {
-                    return <div className={`about--column clickable ${x.pos}`}>
+                    return <div key={x.pos} className={`about--column clickable ${x.pos}`}>
                         <div className="about--box clickable" >
                             <img className="pink-flower" src={pinkFlower} alt="" />
                             <div className="name">{x.name}</div>
